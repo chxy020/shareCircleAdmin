@@ -1,0 +1,39 @@
+ /*表格中开关 样式 高度颜色与默认的不同*/
+.switchStyle {display:inline-block}
+.switchStyle .layui-form-switch {position:relative;height:10px;line-height:10px;min-width:20px;padding:0 4px;}
+.switchStyle .layui-form-switch i {left:-1px;top:-3px;}
+.switchStyle .layui-form-onswitch i {left:13px;margin-left:0;background-color:#3691FF!important;}
+.switchStyle .layui-form-onswitch em {margin-left:0;margin-right:0;color:#3691FF!important;}
+.switchStyle .layui-form-onswitch {border-color:#3691FF;background-color:#fff;}
+/*表格中的鼠标悬停 展示TABLE样式*/
+.tableb {border-collapse:collapse;width:100%;border:none;color:#3c3c3c;}
+.tableb th,.tableb td {border-top:1px solid #d9d9d9;font-size:14px;color:#333;padding:5px 10px!important;text-align: left;}
+.tableb tr:last-child td{border:none}
+.tableb td {background-color:#fff!important;}
+.tableb th {background-color:#eee;text-align:left;font-weight:700;}
+/* 表格中 鼠标移上 显示更多详细CSS html js */
+/*内容在右*/
+.moreOperate {display:inline-block;padding-top:2px;box-sizing:content-box!important;position: relative;}
+.moreOperateA {display:none;position:absolute;left: 130%;top: -15px;z-index:9999;padding-top:10px;}
+.moreOperateAa {background-color:#fff;border:1px solid #ccc;padding:5px;max-height:161px;overflow:auto;}
+.moreOperateArr {position:absolute;left: -7px;top: 23px;width: 9px;height: 17px;background:url(../images/tips_arr_left.png) no-repeat center top;}
+/*内容在左*/
+.moreOperate.leftS .moreOperateArr{left: 99.5%;background: url(../images/tips_arr_right.png) no-repeat center top;}
+.moreOperate.leftS .moreOperateA {right: 120%;left: auto;}
+/* 表格中 鼠标移上 显示更多详细CSS html js  end*/
+.layui-layer-tips .layui-layer-content {background-color: #666!important;}
+.layui-layer-tips i.layui-layer-TipsB, .layui-layer-tips i.layui-layer-TipsT {border-right-color: #666!important;}
+.x-admin-sm .layui-icon.m5{margin-left: 5px;font-size: 14px;}
+
+.mytablecss{
+    
+}
+
+
+
+
+
+
+
+
+

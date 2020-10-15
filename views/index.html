@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- <title>thinNAS</title> -->
+    <title>ThinNAS运营系统</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="alternate icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="stylesheet" href="../layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../layuiadmin/style/admin.css" media="all">
+    <link rel="stylesheet" href="font_icon/iconfont.css"><!-- 阿里自定义图标 -->
+    <script src="../layuiadmin/layui/layui.js"></script>
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/jquery_ex.js"></script>
+</head>
+<body class="layui-layout-body">
+<div id="LAY_app">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo layui-icon layui-side" lay-href="system/account_list.html">
+                <!-- <span>ThinNAS运营系统</span> -->
+                <span>ThinNAS运营系统</span>
+            </div>
+            <!-- 头部区域 -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item layadmin-flexible" lay-unselect>
+                    <a href="javascript:;" layadmin-event="flexible" title="侧边伸缩">
+                        <i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
+                <li class="layui-nav-item" lay-unselect>
+                    <i class="layui-icon iconfont icon-shezhi"></i>
+                    <dl class="layui-nav-child">
+                        <dd><a lay-href="set/course.html"><i class="layui-icon iconfont icon-shiyongjiaocheng"></i>使用教程</a></dd>
+                        <dd><a lay-href="set/question.html"><i class="layui-icon iconfont icon-changjianwenti"></i>常见问题</a></dd>
+                        <dd class="layui-ds" data-type="changepwd" ><a href="javascript:;"><i class="layui-icon iconfont icon-xiugaimima"></i>修改密码</a></dd>
+                        <dd class="layui-ds" data-type="loginout" ><a href="javascript:;"><i class="layui-icon iconfont icon-exit-logon"></i>退出登录</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 侧边菜单 -->
+        <div class="layui-side layui-side-menu">
+            
+            <div class="">
+                <div class="layui-head">
+                    <a href="javascript:;" lay-href="">
+                        <img id="headimg" src="images/headImg.png" width="40" height="40" />
+                        <p id="phone">15201466512</p>
+                        <p id="username">超级管理员</p>
+                    </a>
+                </div>
+                <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
+                    <li data-name="get" class="layui-nav-item">
+                        <a href="javascript:;" lay-href="console/console.html" lay-tips="数据分析" >
+                            <i class="layui-icon iconfont icon-data-analysis"></i>
+                            <cite>数据分析</cite>
+                        </a>
+                    </li>
+                    
+                   
+                    <!-- <li data-name="get" class="layui-nav-item">
+                        <a href="javascript:;" lay-href="" lay-tips="账号信息" lay-direction="2">
+                            <i class="layui-icon iconfont icon-fuwu2"></i>
+                            <cite>内容运营</cite>
+                        </a>
+                    </li> -->
+                    <li data-name="component" class="layui-nav-item ">
+                        <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                            <i class="layui-icon iconfont icon-xitongguanli"></i>
+                            <cite>内容运营</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd><a lay-href="operate/select_list.html">精选运营</a></dd>
+                            <dd data-name="property"><a lay-href="system/circle_list.html">圈子加精审核</a></dd>
+                        </dl>
+                    </li>
+                    
+                
+                
+                </ul>
+            </div>
+        </div>
+
+        <div class="layadmin-pagetabs" id="LAY_app_tabs">
+            <div class="layui-icon layadmin-tabs-control layui-icon-prev" layadmin-event="leftPage"></div>
+            <div class="layui-icon layadmin-tabs-control layui-icon-next" layadmin-event="rightPage"></div>
+            <div class="layui-icon layadmin-tabs-control layui-icon-down">
+                <ul class="layui-nav layadmin-tabs-select" lay-filter="layadmin-pagetabs-nav">
+                    <li class="layui-nav-item" lay-unselect>
+                        <a href="javascript:;"></a>
+                        <dl class="layui-nav-child layui-anim-fadein">
+                            <dd layadmin-event="closeThisTabs"><a href="javascript:;">关闭当前标签页</a></dd>
+                            <dd layadmin-event="closeOtherTabs"><a href="javascript:;">关闭其它标签页</a></dd>
+                            <dd layadmin-event="closeAllTabs"><a href="javascript:;">关闭全部标签页</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="layui-tab" lay-unauto lay-allowClose="true" lay-filter="layadmin-layout-tabs">
+                <ul class="layui-tab-title" id="LAY_app_tabsheader">
+                    <li lay-id="system/account_list.html" lay-attr="system/account_list.html" class="layui-this"><i
+                            class="layui-icon layui-icon-home"></i></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 主体内容 -->
+        <div class="layui-body" id="LAY_app_body" style="top:95px;">
+            <div class="layadmin-tabsbody-item layui-show">
+                <iframe src="console/console.html" frameborder="0" allowFullScreen=true class="layadmin-iframe"></iframe>
+            </div>
+        </div>
+
+        <!-- 辅助元素，一般用于移动设备下遮罩 -->
+        <div class="layadmin-body-shade" layadmin-event="shade"></div>
+    </div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>

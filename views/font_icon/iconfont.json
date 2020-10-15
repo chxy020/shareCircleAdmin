@@ -1,0 +1,184 @@
+{
+  "id": "1907020",
+  "name": "劲群后台",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1031625",
+      "name": "ios",
+      "font_class": "ios",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "1177676",
+      "name": "Windows",
+      "font_class": "windows",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "1496251",
+      "name": "苹果",
+      "font_class": "pingguo",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "2075246",
+      "name": "安卓",
+      "font_class": "anzhuo",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "10529944",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "10593759",
+      "name": "应用,软件配置_jurassic",
+      "font_class": "jurassic_apply",
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "15843831",
+      "name": "组 225",
+      "font_class": "zu225",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "15843833",
+      "name": "组 227",
+      "font_class": "zu227",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "15843834",
+      "name": "组 229",
+      "font_class": "zu229",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "15843820",
+      "name": "组 200",
+      "font_class": "zu200",
+      "unicode": "e666",
+      "unicode_decimal": 58982
+    },
+    {
+      "icon_id": "15843822",
+      "name": "组 204",
+      "font_class": "zu204",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
+      "icon_id": "15843823",
+      "name": "组 201",
+      "font_class": "zu201",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "15843830",
+      "name": "组 211",
+      "font_class": "zu211",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "4121843",
+      "name": "常见问题",
+      "font_class": "changjianwenti",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "4921768",
+      "name": "导航_退出登录",
+      "font_class": "exit-logon",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "7090082",
+      "name": "修改密码",
+      "font_class": "xiugaimima",
+      "unicode": "e718",
+      "unicode_decimal": 59160
+    },
+    {
+      "icon_id": "14745837",
+      "name": "使用教程",
+      "font_class": "shiyongjiaocheng",
+      "unicode": "e69c",
+      "unicode_decimal": 59036
+    },
+    {
+      "icon_id": "4487894",
+      "name": "数据",
+      "font_class": "data-analysis",
+      "unicode": "e694",
+      "unicode_decimal": 59028
+    },
+    {
+      "icon_id": "7665982",
+      "name": "设备",
+      "font_class": "shebeishebeiguanli",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "9697575",
+      "name": "用户",
+      "font_class": "yonghuguanli",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "5383656",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e781",
+      "unicode_decimal": 59265
+    },
+    {
+      "icon_id": "680951",
+      "name": "服务2",
+      "font_class": "fuwu2",
+      "unicode": "e705",
+      "unicode_decimal": 59141
+    },
+    {
+      "icon_id": "12163490",
+      "name": "系统管理",
+      "font_class": "xitongguanli",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "4818701",
+      "name": "显示隐藏-01",
+      "font_class": "hide",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "4818702",
+      "name": "显示隐藏-02",
+      "font_class": "show",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    }
+  ]
+}
