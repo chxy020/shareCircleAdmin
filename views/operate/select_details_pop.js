@@ -16,38 +16,32 @@ layui.config({
     var server = setter.baseUrl;
     var uri = window.location.search;
     
-    // var filePath = "";
-    // var fileId = "";
+    var types = ["","硬件故障","软件故障","硬件使用障碍","软件使用障碍","优化建议","投诉反馈","其它"];
+    var imgpaths = [];
 
-    var fileId = setter.getUrlParam("fileId",uri) || "";
-    var fileName = setter.getUrlParam("fileName",uri) || "";
-    var filePath = setter.getUrlParam("filePath",uri) || "";
-    var isEdit = setter.getUrlParam("isEdit",uri) || "";
-    
-    if(isEdit){
-        $("#filepath").html(filePath.replace("/ADMINM/uploadFiles/file",""));
-        $("#NAME").val(fileName);
-    }
+    var role_ID = setter.getUrlParam("role_ID",uri) || "";
 
-    //视频
+
     upload.render({
         elem: '#test5',
-        url: server + "/ADMINM/course/uploadFile", //改成您自己的上传接口
-        accept: 'video', //视频
+        multiple: true,
+        url: server + "/ADMINM/aftersales/uploadImgFile", //改成您自己的上传接口
+        accept: 'images', //视频
+        exts: 'jpg|png|jpeg|gif', //只允许图片
+        acceptMime:"image/jpg, image/png, image/jpeg, image/gif",
         field:"clientFile",
+        number:9,
         before:function(){
             layer.load(2);
         },
         done: function(res){
             layer.closeAll();
-            // console.log(res)
+            console.log(res)
             if(res.code == 1){
                 layer.msg('上传成功');
-                $("#filepath").html(res.PATH.replace("/ADMINM/uploadFiles/file",""));
-                filePath = res.PATH;
-                if(!isEdit){
-                    fileId = res.ID;
-                }
+                res.IMGPATH = res.IMGPATH.replace(",","");
+                imgpaths.push(res.IMGPATH);
+                changeImgPathHtml(res.IMGPATH);
             }else{
                 layer.msg('上传失败');
             }
@@ -58,37 +52,70 @@ layui.config({
         }
     });
 
+
+    // if(role_ID){
+    //     //编辑
+    //     $.Ajax({
+    //         async: false,
+    //         url: server + "/ADMINM/role/toEdit",
+    //         dataType: "json",
+    //         method: 'get',
+    //         data:{"ROLE_ID":role_ID},
+    //         success: function(obj) {
+    //             if(obj.code == 1){
+    //                 changeRoleHtml(obj.data || {});
+    //             }else{
+    //                 layer.msg(obj.msg || "获取角色详情错误");
+    //             }
+               
+    //         }
+    //     });
+    // }
+    
     //监听提交
     form.on('submit(submit)', function(data){
         // alert(888)
         // layer.msg(JSON.stringify(data.field),function(){
         //     location.href='index.html'
         // });
-        
-        console.log(data.field)
-        if(!filePath){
-            layer.msg("没有上传文件");
+        // console.log(data.field)
+
+        if(imgpaths.length == 0){
+            layer.msg("请上传截图");
             return false;
         }
-        var condi = {};
-        condi.NAME = data.field.NAME;
-        condi.PATH = filePath;
-        condi.ID = fileId;
 
-        if(isEdit){
-            updateCourse(condi);
-        }else{
-            saveCourse(condi);
-        }
+        var condi = {};
+        condi.FEEDBACKTYPE = types[+data.field.FEEDBACKTYPE];
+        condi.DESCRIBE = data.field.DESCRIBE;
+        condi.IMGPATH = imgpaths.join(',');
+        condi.PHONE = data.field.PHONE;
+        condi.WECHAT = data.field.WECHAT;
+        condi.QQ = data.field.QQ;
+
+
+
+        saveAfterSales(condi);
+
+        // if(role_ID){
+        //     //编辑
+        //     editRole(condi);
+        // }else{
+        //     addRole(condi);
+        // }
+        
         return false;
     });
 
-    
+    function changeImgPathHtml(img){
+        var html = "<img src='" + (server + img) + "' />";
+        $("#IMGPATH").append(html);
+    }
 
-    function saveCourse(condi){
+    function saveAfterSales(condi){
         $.Ajax({
             async: false,
-            url: server + "/ADMINM/course/saveCourse",
+            url: server + "/ADMINM/aftersales/saveAfterSales",
             dataType: "json",
             method: 'post',
             data:condi,
@@ -109,11 +136,12 @@ layui.config({
         });
     }
 
-    function updateCourse(condi){
+    function editRole(condi){
+        condi.ROLE_ID = role_ID;
 
         $.Ajax({
             async: false,
-            url: server + "/ADMINM/course/updateCourse",
+            url: server + "/ADMINM/role/edit",
             dataType: "json",
             method: 'post',
             data:condi,
@@ -126,7 +154,7 @@ layui.config({
                         window.parent.location.reload();
                         var index = parent.layer.getFrameIndex(window.name);
                		    parent.layer.close(index);
-                    },500);
+                    },1500);
                 }else{
                     layer.msg(obj.msg || "修改失败");
                 }

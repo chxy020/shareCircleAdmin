@@ -54,7 +54,7 @@ layui.config({
         //表格加载渲染
         table.render({
             elem: '#test-table-operate',
-            height: 'full-100',//必须留着
+            height: 'full-110',//必须留着
             // 暂时用DATA数据
             // url: server + "/ADMINM/aftersales/listAfterSales",
             where:{
@@ -193,28 +193,28 @@ layui.config({
                     {
                         field: 'phone',
                         width: 90,
-                        title: '图片',
+                        title: '标题',
                         toolbar: '#test-table-operate-barDemo-cellA',
                     },{
-                        title: '操作',
+                        title: '',
                         toolbar: '#test-table-operate-barDemo-cellB',
                     },{
                         field: 'qq',
                         width: 120,
-                        title: 'QQ',
+                        title: '',
                         toolbar: '#test-table-operate-barDemo-cellC',
                     },{
                         field: 'tjr',
                         width: 160,
-                        title: '添加人',
+                        title: '',
                         toolbar: '#test-table-operate-barDemo-cellD',
                     },{
                         field: 'createtime',
-                        title: '添加时间',
+                        title: '',
                         toolbar: '#test-table-operate-barDemo-cellE',
                     },{
                         field: 'status',
-                        title: '解决进展',
+                        title: '操作',
                         width: 100,
                         toolbar: '#test-table-operate-barDemo-cellF',
                     }
@@ -249,7 +249,8 @@ layui.config({
                         })
                     }
                 }
-
+                // $('th').hide();//表头隐藏的样式
+                // $('.layui-table-page').css('margin-top','40px');//页码部分的高度调整
 
                 // table_data = res.data;
                 // layer.closeAll('loading');

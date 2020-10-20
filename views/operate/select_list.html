@@ -2,7 +2,7 @@
 <html  class="x-admin-sm">
 <head>
 <meta charset="UTF-8">
-<title>售后服务</title>
+<title>精选运营</title>
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -76,7 +76,7 @@
 	margin-right: 10px;
 }
 .zinfo{
-	margin-top:10px
+	margin-top:5px
 }
 .zinfo span{
 	margin-right: 10px;
@@ -84,151 +84,258 @@
 .times{
 	color:#878787;
 }
-.layui-table-header{
+/* .layui-table-header{
 	display: none;
-}
+} */
 .laytable-cell-1-0-4 {
-	white-space: pre-wrap;
+	white-space: normal;
 }
+.laytable-cell-1-0-1 {
+    white-space:normal;
+}
+.layui-btn .layui-icon {
+    margin-right: 0;
+    font-size: 16px;
+}
+.x-admin-sm .layui-btn {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+}
+.x-admin-sm .iconfont {
+	font-size: 16px;
+	cursor: pointer;
+	margin-left: 3px;
+	color: #716c66;
+}
+.x-admin-sm .iconfont:hover {
+	color: #333;
+}
+.x-admin-sm .hide .icon-show{
+	color: #000;
+}
+.layui-input-inline.layui-show-xs-block .layui-btn{
+	height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+
 </style>
 </head>
 <body>
 <div class="layui-fluid">
-	<div class="layui-row">
-		<div class="layui-card">
-			<div class="layui-form layui-col-space5">	
-				<div class="layui-input-inline layui-show-xs-block">
-					<input type="text" id="keyword" name="keyword" placeholder="搜索昵称资源名称" autocomplete="off" class="layui-input">
+<div class="layui-row">
+<div class="layui-card">
+	<!-- 左侧部分 -->
+	<div class="contleft">
+		<ul id="contleftlist" class="contleftlist">
+			<li class="on">
+				<a href="javascript:;">顶部banner</a>
+				<div class="rightbtn">
+					<span class="icon iconfont icon-hide" id="switchshow"></span>
+					<span class="icon iconfont icon-zu225" data-type="editquestionclass"></span>
 				</div>
-				<div class="layui-input-inline layui-show-xs-block">
-					<select id="statusselect" lay-filter="component-status" name="contrller">
-						<option value="">选择展开状态</option>
-						<option value="1">启用</option>
-						<option value="0">停用</option>
-					</select>
+			</li>
+			<li class="hide">
+				<a href="javascript:;">电影</a>
+				<div class="rightbtn">
+					<span class="icon iconfont icon-show" id="switchshow"></span>
+					<span class="icon iconfont icon-zu225"></span>
 				</div>
-				<div class="layui-input-inline layui-show-xs-block">
-					<select id="sexselect" lay-filter="component-sex" name="contrller">
-						<option value="">选择排序方式</option>
-						<option value="1">男</option>
-						<option value="2">女</option>
-					</select>
+			</li>
+			<li class="hide">
+				<a href="javascript:;">美图</a>
+				<div class="rightbtn">
+					<span class="icon iconfont icon-show"></span>
+					<span class="icon iconfont icon-zu225"></span>
 				</div>
-				<div class="layui-input-inline layui-show-xs-block">
-					<input type="text" id="keyword" name="keyword" placeholder="选择所需金币区间" autocomplete="off" class="layui-input">
+			</li>
+			<li>
+				<a href="javascript:;">音乐</a>
+				<div class="rightbtn">
+					<span class="icon iconfont icon-hide"></span>
+					<span class="icon iconfont icon-zu225"></span>
 				</div>
-				<div class="layui-input-inline layui-show-xs-block">
-					<input type="text" name="date" id="rangetime" placeholder="选择发布时间区间" autocomplete="off" class="layui-input">
+			</li>
+			<li>
+				<a href="javascript:;">小说</a>
+				<div class="rightbtn">
+					<span class="icon iconfont icon-hide"></span>
+					<span class="icon iconfont icon-zu225"></span>
 				</div>
-				<div class="layui-input-inline layui-show-xs-block clearfix">
-					<button class="layui-btn layui-ds layui-btn-primary" data-type="refresh" id="refresh" data="刷新">
-						<i class="layui-icon">&#xe666;</i>
-					</button>
-				</div>			
-
+			</li>
+			<li>
+				<a href="javascript:;">小说</a>
+				<div class="rightbtn">
+					<span class="icon iconfont icon-hide"></span>
+					<span class="icon iconfont icon-zu225"></span>
+				</div>
+			</li>
+		</ul>	
+		<ul class="contleftlist">	
+			<li>
+				<a href="javascript:;">武侠专题</a>
+				<div class="rightbtn">(专题1) - [陈列]</div>
+				<div class="rightbtn rightshow">
+					<span class="icon iconfont icon-zu227"></span>
+					<span class="icon iconfont icon-hide"></span>
+					<span class="icon iconfont icon-zu225"></span>
+					<span class="icon iconfont icon-zu229"></span>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:;">周星驰</a>
+				<div class="rightbtn">(专题2) - [陈列]</div>
+				<div class="rightbtn rightshow">
+					<span class="icon iconfont icon-zu227"></span>
+					<span class="icon iconfont icon-hide"></span>
+					<span class="icon iconfont icon-zu225"></span>
+					<span class="icon iconfont icon-zu229"></span>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:;">周星驰</a>
+				<div class="rightbtn">(专题3) - [陈列]</div>
+				<div class="rightbtn rightshow">
+					<span class="icon iconfont icon-zu227"></span>
+					<span class="icon iconfont icon-hide"></span>
+					<span class="icon iconfont icon-zu225"></span>
+					<span class="icon iconfont icon-zu229"></span>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:;">周星驰</a>
+				<div class="rightbtn">(专题4) - [陈列]</div>
+				<div class="rightbtn rightshow">
+					<span class="icon iconfont icon-zu227"></span>
+					<span class="icon iconfont icon-hide"></span>
+					<span class="icon iconfont icon-zu225"></span>
+					<span class="icon iconfont icon-zu229"></span>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:;">周星驰</a>
+				<div class="rightbtn">(专题5) - [陈列]</div>
+				<div class="rightbtn rightshow">
+					<span class="icon iconfont icon-zu227"></span>
+					<span class="icon iconfont icon-hide"></span>
+					<span class="icon iconfont icon-zu225"></span>
+					<span class="icon iconfont icon-zu229"></span>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:;">周星驰</a>
+				<div class="rightbtn">(专题6) - [陈列]</div>
+				<div class="rightbtn rightshow">
+					<span class="icon iconfont icon-zu227"></span>
+					<span class="icon iconfont icon-hide"></span>
+					<span class="icon iconfont icon-zu225"></span>
+					<span class="icon iconfont icon-zu229"></span>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:;">周星驰</a>
+				<div class="rightbtn">(专题7) - [陈列]</div>
+				<div class="rightbtn rightshow">
+					<span class="icon iconfont icon-zu227"></span>
+					<span class="icon iconfont icon-hide"></span>
+					<span class="icon iconfont icon-zu225"></span>
+					<span class="icon iconfont icon-zu229"></span>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<!-- 左侧底部添加专题楼层 -->
+	<div class="contleftbtn">
+		<button type="button" class="layui-btn layui-btn-normal" data-type="addquestion"><i class="layui-icon">&#xe624;</i>添加专题楼层</button>
+	</div>
+	<!-- 右侧 -->
+	<div class="contright">
+		<div class="layui-fluid">
+			<div class="layui-row">
+				<div class="layui-card">
+					<!-- 筛选 -->
+					<div class="layui-form layui-col-space5">	
+						<div class="layui-input-inline layui-show-xs-block">
+							<input type="text" id="keyword" name="keyword" placeholder="搜索昵称资源名称" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-input-inline layui-show-xs-block">
+							<select id="statusselect" lay-filter="component-status" name="contrller">
+								<option value="">选择展开状态</option>
+								<option value="1">启用</option>
+								<option value="0">停用</option>
+							</select>
+						</div>
+						<div class="layui-input-inline layui-show-xs-block">
+							<select id="sexselect" lay-filter="component-sex" name="contrller">
+								<option value="">选择排序方式</option>
+								<option value="1">男</option>
+								<option value="2">女</option>
+							</select>
+						</div>
+						<div class="layui-input-inline layui-show-xs-block">
+							<input type="text" id="keyword" name="keyword" placeholder="选择所需金币区间" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-input-inline layui-show-xs-block">
+							<input type="text" name="date" id="rangetime" placeholder="选择发布时间区间" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-input-inline layui-show-xs-block clearfix">
+							<button class="layui-btn layui-ds layui-btn-primary" data-type="refresh" id="refresh" data="刷新">
+								<i class="layui-icon">&#xe666;</i>
+							</button>
+						</div>			
+		
+					</div>
+					<!-- 添加资源 -->
+					<div class="pt10 clearfix pop_text">
+						<button class="layui-btn layui-ds layui-btn-primary" data-type="add" id="add" data="添加">
+							<i class="layui-icon">&#xe654;</i>添加资源
+						</button>
+					</div>
+					<!-- 表格 -->
+					<table id="test-table-operate" lay-filter="test-table-operate"></table>
+					<script type="text/html" id="test-table-operate-barDemo-cellA">
+						<div><img src="../images/moren.jpg" width="80" height="80"/></div>
+					</script>
+					<script type="text/html" id="test-table-operate-barDemo-cellB">
+						<div>
+							<div class="biaoti">高清刘德华演唱会1998版.mp4</div>
+							<div class="borderF"><img src="../images/icona.png" width="24" />高清刘德华演唱会1998版.mp4</div>
+						</div>
+					</script>
+					<script type="text/html" id="test-table-operate-barDemo-cellC">
+						<div style="text-align: left;white-space:nowrap;">
+							<div class="jinbi"><span>35</span>金币</div>
+							<div class="size"><span>MP4</span>4.5G</div>
+						</div>
+					</script>
+					<script type="text/html" id="test-table-operate-barDemo-cellD">
+						<div style="text-align: left;white-space:nowrap;">
+							<div class="touxiang"><img src="../images/headImg.png" width="24" />>admin</div>
+							<div class="zinfo"><span>分享：400</span><span>转存：6000</span></div>
+							<div class="times">2020.10.10 12.34</div>
+						</div>
+					</script>
+					<script type="text/html" id="test-table-operate-barDemo-cellE">
+						<p class="textx">内容内容内容内容内容内容内容内容内容内容内容,内容内容内容内容内容内容内容内容内容,内容内容内容内容内容内容内容</p>
+					</script>
+					<script type="text/html" id="test-table-operate-barDemo-cellF">
+						<div class="switchStyle" lay-event="switch" id="switch">
+							{{#  if(d.STATUS == 1){ }}
+							<input type="checkbox" checked="" lay-skin="switch"><!--开-->
+							{{#  } else{ }}
+							<input type="checkbox" lay-skin="switch">
+							{{#  } }}
+						</div>
+						<a class="layui-icon table-icon-style" lay-event="edit" id="edit">&#xe642;</a>
+						<a class="layui-icon table-icon-style" lay-event="del" id="del">&#xe640;</a>
+					</script>
+				</div>
 			</div>
-			<div class="pt10 clearfix pop_text">
-				<button class="layui-btn layui-ds layui-btn-primary" data-type="add" id="add" data="添加">
-					<i class="layui-icon">&#xe654;</i>添加资源
-				</button>
-			</div>
-			<!-- 最后删除 -->
-			<table class="mytablecss" style="display: none;">
-				<colgroup>
-					<col width="">
-					<col width="">
-					<col width="">
-					<col width="">
-					<col>
-					<col>
-				</colgroup>
-				<thead>
-					<tr>
-						<th>标题2</th>
-						<th>标题2</th>
-						<th>标题3</th>
-						<th>标题4</th>
-						<th>标题5</th>
-						<th>标题5</th>
-					</tr> 
-				</thead>
-				<tbody class="mouseover_ta01">
-					<tr>
-						<td>
-							<div><img src="../images/moren.jpg"></img></div>
-						</td>
-						<td>
-							<div>
-								<div class="biaoti">高清刘德华演唱会1998版.mp4
-									<!-- <span id="pwdeye" style="margin-left:10px;margin-top:2px;font-size:16px" class="iconfont icon-hide"></span> -->
-								</div>
-								<div class="borderF"><img src="../images/icona.png" width="24"></img>高清刘德华演唱会1998版.mp4</div>
-							</div>
-						</td>
-						<td>
-							<div style="text-align: left;white-space:nowrap;">
-								<div class="jinbi"><span>35</span>金币</div>
-								<div class="size"><span>MP4</span>4.5G</div>
-							</div>
-						</td>
-						<td>
-							<div style="text-align: left;white-space:nowrap;">
-								<div class="touxiang"><img src="../images/headImg.png" width="24"></img>admin</div>
-								<div class="zinfo"><span>分享：400</span><span>转存：6000</span></div>
-								<div class="times">2020.10.10 12.34</div>
-							</div>
-						</td>
-						<td>
-							<p class="textx">内容内容内容内容内容内容内容内容内容内容内容,内容内容内容内容内容内容内容内容内容,内容内容内容内容内容内容内容</p></td>
-						<td>
-							<div style="text-align: left;white-space:nowrap;">
-								<div class="touxiang"><img src="../images/headImg.png" width="24"></img>admin</div>
-								<div class="zinfo"><span>分享：400</span><span>转存：6000</span></div>
-							</div>	
-						</td>
-					</tr>
-					
-				</tbody>
-			</table>
-			<table id="test-table-operate" lay-filter="test-table-operate"></table>
-			<script type="text/html" id="test-table-operate-barDemo-cellA">
-				<div><img src="../images/moren.jpg" width="80" height="80"/></div>
-			</script>
-			<script type="text/html" id="test-table-operate-barDemo-cellB">
-				<div>
-					<div class="biaoti">高清刘德华演唱会1998版.mp4</div>
-					<div class="borderF"><img src="../images/icona.png" width="24" />高清刘德华演唱会1998版.mp4</div>
-				</div>
-			</script>
-			<script type="text/html" id="test-table-operate-barDemo-cellC">
-				<div style="text-align: left;white-space:nowrap;">
-					<div class="jinbi"><span>35</span>金币</div>
-					<div class="size"><span>MP4</span>4.5G</div>
-				</div>
-			</script>
-			<script type="text/html" id="test-table-operate-barDemo-cellD">
-				<div style="text-align: left;white-space:nowrap;">
-					<div class="touxiang"><img src="../images/headImg.png" width="24"></img>admin</div>
-					<div class="zinfo"><span>分享：400</span><span>转存：6000</span></div>
-					<div class="times">2020.10.10 12.34</div>
-				</div>
-			</script>
-			<script type="text/html" id="test-table-operate-barDemo-cellE">
-				<p class="textx">内容内容内容内容内容内容内容内容内容内容内容,内容内容内容内容内容内容内容内容内容,内容内容内容内容内容内容内容</p>
-			</script>
-			<script type="text/html" id="test-table-operate-barDemo-cellF">
-				<div class="switchStyle" lay-event="switch" id="switch">
-					{{#  if(d.STATUS == 1){ }}
-					<input type="checkbox" checked="" lay-skin="switch"><!--开-->
-					{{#  } else{ }}
-					<input type="checkbox" lay-skin="switch">
-					{{#  } }}
-				</div>
-				<a class="layui-icon table-icon-style" lay-event="edit" id="edit">&#xe642;</a>
-				<a class="layui-icon table-icon-style" lay-event="del" id="del">&#xe640;</a>
-			</script>
 		</div>
 	</div>
+</div>
+</div>
 </div>
 <script src="select_list.js"></script>
 </body>

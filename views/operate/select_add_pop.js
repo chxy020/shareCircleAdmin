@@ -27,8 +27,8 @@ layui.config({
         multiple: true,
         url: server + "/ADMINM/aftersales/uploadImgFile", //改成您自己的上传接口
         accept: 'images', //视频
-        exts: 'jpg|png|jpeg', //只允许图片
-        acceptMime:"image/jpg, image/png, image/jpeg",
+        exts: 'jpg|png|jpeg|gif', //只允许图片
+        acceptMime:"image/jpg, image/png, image/jpeg, image/gif",
         field:"clientFile",
         number:9,
         before:function(){
