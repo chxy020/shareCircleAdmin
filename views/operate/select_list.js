@@ -405,7 +405,7 @@ layui.config({
                 btn: ['保存', '取消'],
                 btnAlign: 'c',
                 maxmin: true,
-                content: 'aftersales_add_pop.html',
+                content: 'select_add_pop.html',
                 yes: function(index, layero) {
                     var submit = layero.find('iframe').contents().find("#submit");
                     submit.click();
