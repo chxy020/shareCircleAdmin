@@ -46,7 +46,7 @@
 <body>
 <form method="post" class="layui-form" >
     <div class="layui-form" lay-filter="layuiadmin-app-form-list" id="layuiadmin-app-form-list" style="padding: 20px 30px 0 0; ">
-        <div class="layui-form-item">
+        <!-- <div class="layui-form-item">
             <label class="layui-form-label"><span>*</span>所属专题：</label>
             <div class="layui-input-block">
                 <select id="FEEDBACKTYPE" lay-verify="required" name="FEEDBACKTYPE">
@@ -59,45 +59,46 @@
                     <option value="7">多选</option>
                 </select>
             </div>
-        </div>
+        </div> -->
         <div class="layui-form-item">
             <label class="layui-form-label"><span>*</span>资源名称：</label>
             <div class="layui-input-block">
-                <input type="text" placeholder="请输入教程名称5-10个字，不超过20字" autocomplete="off" class="layui-input" id="PHONE" name="PHONE">
+                <input type="text" lay-verify="required" placeholder="请输入视频标题" autocomplete="off" class="layui-input" id="title" name="title" />
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label"><span>*</span>视频封面：</label>
             <div class="layui-input-block">
-                <button type="button" class="layui-btn" id="test5"><i class="layui-icon"></i>上传图片</button>
-                <!-- <input type="text" placeholder="支持直接截图复制粘贴" autocomplete="off" class="layui-input" id="BZ" name="BZ"> -->
+                <!-- <button type="button" class="layui-btn" id="test5"><i class="layui-icon"></i>上传图片</button> -->
+                <input type="file" class="layui-input" accept=".jpg,.jpeg,.png,.gif" id="imgfile" name="imgfile" />
             </div>
-            <div id="IMGPATH" style="margin-left: 118px;" class="uploadImg">
-            </div>
-            <div style="margin-left: 120px;">支持JPG、JPEG、PNG、GIT</div>
+            <!-- <div id="IMGPATH" style="margin-left: 118px;" class="uploadImg"></div> -->
+            <div style="margin-left: 120px;">支持JPG、JPEG、PNG、GIF</div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label"><span>*</span>视频文件：</label>
             <div class="layui-input-block">
-                <button type="button" class="layui-btn" id="test5"><i class="layui-icon"></i>上传文件</button>
+                <!-- <button type="button" class="layui-btn" id="test5"><i class="layui-icon"></i>上传文件</button> -->
                 <!-- <input type="text" placeholder="支持直接截图复制粘贴" autocomplete="off" class="layui-input" id="BZ" name="BZ"> -->
+                <input type="file" class="layui-input" accept=".mp4" id="file" name="file" />
             </div>
             <div id="IMGPATH" style="margin-left: 118px;" class="uploadImg">上传成功后的文件名.mp4  5.5G</div>
         </div>
-        <div class="layui-form-item">
+        <!-- <div class="layui-form-item">
             <label class="layui-form-label">所需金币：</label>
             <div class="layui-input-block" style="position: relative;">
                 <input type="text" placeholder="请输入0~9999" autocomplete="off" class="layui-input" id="PHONE" name="PHONE">
                 <div class="jinbi"><span>金币</span></div>
             </div>
-        </div>
+        </div> -->
         <div class="layui-form-item">
             <label class="layui-form-label">资源介绍：</label>
             <div class="layui-input-block">
-                <textarea id="DESCRIBE" name="DESCRIBE" lay-verify="required" placeholder="请尽量详细的描述您遇到的故障" class="layui-textarea"></textarea>
+                <textarea id="describe" name="describe" lay-verify="required" placeholder="资源描述" class="layui-textarea"></textarea>
             </div>
         </div>
     </div>
+    <button style="display: none;" class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="submit" id="submit">登 录</button>
 </form>
 <script src="select_add_pop.js" type="text/javascript" charset="utf-8"></script>
 </body>

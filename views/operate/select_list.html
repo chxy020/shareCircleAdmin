@@ -127,7 +127,7 @@
 <div class="layui-row">
 <div class="layui-card">
 	<!-- 左侧部分 -->
-	<div class="contleft">
+	<!-- <div class="contleft">
 		<ul id="contleftlist" class="contleftlist">
 			<li class="on">
 				<a href="javascript:;">顶部banner</a>
@@ -244,45 +244,45 @@
 				</div>
 			</li>
 		</ul>
-	</div>
+	</div> -->
 	<!-- 左侧底部添加专题楼层 -->
-	<div class="contleftbtn">
+	<!-- <div class="contleftbtn">
 		<button type="button" class="layui-btn layui-btn-normal" data-type="addquestion"><i class="layui-icon">&#xe624;</i>添加专题楼层</button>
-	</div>
+	</div> -->
 	<!-- 右侧 -->
-	<div class="contright">
+	<!-- <div class="contright"> -->
 		<div class="layui-fluid">
 			<div class="layui-row">
 				<div class="layui-card">
 					<!-- 筛选 -->
 					<div class="layui-form layui-col-space5">	
 						<div class="layui-input-inline layui-show-xs-block">
-							<input type="text" id="keyword" name="keyword" placeholder="搜索昵称资源名称" autocomplete="off" class="layui-input">
+							<input type="text" id="search" name="search" placeholder="搜索的标题" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-input-inline layui-show-xs-block">
-							<select id="statusselect" lay-filter="component-status" name="contrller">
+							<select id="revealType" lay-filter="component-status" name="contrller">
 								<option value="">选择展开状态</option>
-								<option value="1">全部</option>
-								<option value="2">启用</option>
-								<option value="3">禁用</option>
+								<option value="0">全部</option>
+								<option value="1">启用</option>
+								<option value="2">禁用</option>
 							</select>
 						</div>
 						<div class="layui-input-inline layui-show-xs-block">
-							<select id="sexselect" lay-filter="component-sex" name="contrller">
+							<select id="sort" lay-filter="component-sex" name="contrller">
 								<option value="">选择排序方式</option>
-								<option value="1">最近发布</option>
-								<option value="2">最早发布</option>
+								<option value="0">最近发布</option>
+								<option value="1">最早发布</option>
 								<option value="2">金币最低</option>
-								<option value="2">金币最高</option>
-								<option value="2">分享最多</option>
-								<option value="2">分享最少</option>
-								<option value="2">转存最多</option>
-								<option value="2">转存最少</option>
+								<option value="3">金币最高</option>
+								<option value="4">分享最低</option>
+								<option value="5">分享最高</option>
+								<option value="6">下载最多</option>
+								<option value="7">下载最少</option>
 							</select>
 						</div>
-						<div class="layui-input-inline layui-show-xs-block">
+						<!-- <div class="layui-input-inline layui-show-xs-block">
 							<input type="text" id="keyword" name="keyword" placeholder="选择所需金币区间" autocomplete="off" class="layui-input">
-						</div>
+						</div> -->
 						<div class="layui-input-inline layui-show-xs-block">
 							<input type="text" name="date" id="rangetime" placeholder="选择发布时间区间" autocomplete="off" class="layui-input">
 						</div>
@@ -318,7 +318,7 @@
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellD">
 						<div style="text-align: left;white-space:nowrap;">
-							<div class="touxiang"><img src="../images/headImg.png" width="24" />>admin</div>
+							<div class="touxiang"><img src="../images/headImg.png" width="24" />admin</div>
 							<div class="zinfo"><span>分享：400</span><span>转存：6000</span></div>
 							<div class="times">2020.10.10 12.34</div>
 						</div>
@@ -340,7 +340,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	<!-- </div> -->
 </div>
 </div>
 </div>

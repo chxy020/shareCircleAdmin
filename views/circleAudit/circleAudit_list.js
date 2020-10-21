@@ -58,11 +58,10 @@ layui.config({
             // 暂时用DATA数据
             // url: server + "/ADMINM/aftersales/listAfterSales",
             where:{
-                "search":type,
-                "sort":status,
-                "startTime":rangetimeStart,
-                "endTime":rangetimeEnd,
-                "revealType":rangetimeEnd,
+                "FEEDBACKTYPE":type,
+                "STATUS":status,
+                "timeStart":rangetimeStart,
+                "timeEnd":rangetimeEnd
             },
             method: 'get',
             xhrFields: {
@@ -300,6 +299,14 @@ layui.config({
         });
     }
 
+
+    //监听指定开关
+    // form.on('switch(switchTest)', function(data){
+    //     layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+    //         offset: '6px'
+    //     });
+    //     layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+    // });
     
     form.on('select(component-types)', function(data){
         tableRender();
@@ -398,7 +405,7 @@ layui.config({
                 btn: ['保存', '取消'],
                 btnAlign: 'c',
                 maxmin: true,
-                content: 'select_add_pop.html',
+                content: 'aftersales_add_pop.html',
                 yes: function(index, layero) {
                     var submit = layero.find('iframe').contents().find("#submit");
                     submit.click();
