@@ -14,11 +14,24 @@
         body{
             font-family: Arial;
         }
+        .layui-form-item{
+            position: relative;
+        }
+        
         .layui-form-label {
-            width: 70px;
+            width: 90px;
         }
         .layui-input-block {
-            margin-left: 100px;
+            margin-left: 120px;
+            margin-right: 80px;
+        }
+        .layui-btn-block{
+            position: absolute;
+            right:0;
+            top:0
+        }
+        .layui-form-item .layui-btn-block .layui-btn{
+            padding:0 20px
         }
         .uploadImg img{
             width: 100px;
@@ -202,18 +215,41 @@
             <div class="borderF infoxx"><img src="../images/headImg.png" width="24" />我是勤劳的搬运工<span class="a">45</span><span class="b">资源</span></div>
         </div>
         <div class="chuC mt10">
-            <div class="jinbix">所需金币：<span>35</span>金币</div>
+            <div class="jinbix" style="padding-left:10px">所需金币：<span>35</span>金币</div>
             <div class="zinfo"><span>分享：400</span><span>转存：6000</span></div>
         </div>
-        
-<!-- <div style="text-align: left;white-space:nowrap;">
-							<div class="jinbi"><span>35</span>金币</div>
-							<div class="size"><span>MP4</span>4.5G</div>
-						</div> -->
-
-
+        <div class="layui-form-item" style="margin-top: 20px;">
+            <label class="layui-form-label"><span>*</span>拒绝原因：</label>
+            <div class="layui-input-block">
+                <input type="text" placeholder="拒绝原因 最多20个字" autocomplete="off" class="layui-input" id="PHONE" name="PHONE">
+            </div>
+            <div class="layui-btn-block">
+                <button class="layui-btn layui-ds layui-btn-primary" data-type="add" id="add" data="添加">
+                    拒绝
+                </button>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label"><span>*</span>纳入专题：</label>
+            <div class="layui-input-block">
+                <select id="FEEDBACKTYPE" lay-verify="required" name="FEEDBACKTYPE">
+                    <option value="1">首页BNNER</option>
+                    <option value="2">首页BNNER</option>
+                    <option value="3">首页BNNER</option>
+                    <option value="4">首页BNNER</option>
+                    <option value="5">多选</option>
+                    <option value="6">多选</option>
+                    <option value="7">多选</option>
+                </select>
+            </div>
+            <div class="layui-btn-block">
+                <button class="layui-btn layui-ds layui-btn-primary" data-type="add" id="add" data="添加">
+                    通过
+                </button>
+            </div>
+        </div>
     </div>
 </form>
-<script src="select_banner_edit_pop.js" type="text/javascript" charset="utf-8"></script>
+<script src="circleAudit_audit_pop.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
