@@ -44,7 +44,7 @@
     </style>
 </head>
 <body>
-<form method="post" class="layui-form" >
+<form method="post" id="form" name="form" enctype="multipart/form-data" class="layui-form" >
     <div class="layui-form" lay-filter="layuiadmin-app-form-list" id="layuiadmin-app-form-list" style="padding: 20px 30px 0 0; ">
         <!-- <div class="layui-form-item">
             <label class="layui-form-label"><span>*</span>所属专题：</label>
@@ -98,6 +98,7 @@
             </div>
         </div>
     </div>
+    <input type="hidden" id="uid" name="uid" />
     <button style="display: none;" class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="submit" id="submit">登 录</button>
 </form>
 <script src="select_add_pop.js" type="text/javascript" charset="utf-8"></script>

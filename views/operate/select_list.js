@@ -10,13 +10,15 @@ layui.config({
         $ = layui.jquery;
 
     var server = setter.baseUrl;
+    var imageUrl = setter.imageUrl;
 
-    var statusarr = ["","处理中","已关闭","已解决","待定"];
-    var types = ["","硬件故障","软件故障","硬件使用障碍","软件使用障碍","优化建议","投诉反馈","其它"];
-    var arrangeList = [];
+    // var statusarr = ["","处理中","已关闭","已解决","待定"];
+    // var types = ["","硬件故障","软件故障","硬件使用障碍","软件使用障碍","优化建议","投诉反馈","其它"];
+    // var arrangeList = [];
+
     var rangetimeStart = "";
     var rangetimeEnd = "";
-    var rangetime = laydate.render({
+    laydate.render({
         elem: '#rangetime',
         range: true,
         // min: s2,
@@ -49,168 +51,175 @@ layui.config({
 
 
     function tableRender(){
-        var type = types[+$("#FEEDBACKTYPE").val()];
-        var status = statusarr[+$("#STATUS").val()];
+        layer.load(2);
+
+        var search = $("#search").val();
+        var revealType = $("#revealType").val();
+        var sort = $("#sort").val();
+        
         //表格加载渲染
         table.render({
             elem: '#test-table-operate',
             height: 'full-110',//必须留着
             // 暂时用DATA数据
-            // url: server + "/ADMINM/aftersales/listAfterSales",
+            url: server + "/circle/examine/getExamineContent",
             where:{
-                "search":type,
-                "sort":status,
+                "search":search,
+                "revealType":revealType,
+                "sort":sort,
                 "startTime":rangetimeStart,
-                "endTime":rangetimeEnd,
-                "revealType":rangetimeEnd,
+                "endTime":rangetimeEnd
             },
             method: 'get',
             xhrFields: {
                 withCredentials: true
             }
             // DATA数据
-            ,data:[
-                {
-                    createtime: "2020-08-02 20:03:06",
-                    describe: "qwerqwer",
-                    feedbacktype: "软件使用障碍",
-                    id: 7,
-                    imgpath: "http://img1.99114.com/group3/M00/44/ED/rBADvVsg22mAB3PxAANeHq0SdqE776.jpg,http://img4.99114.com/group3/M00/1B/6D/rBADu18f9UeAesGwAAIfkhymy_M075.jpg,http://www.99114.com/group3/M00/1A/D9/rBADu18MDt6AasDcAAAuc92Fgoo993.jpg,http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
-                    jjr: null,
-                    phone: "222",
-                    qq: "4444",
-                    reason: "dddsdf解决了",
-                    status: "已解决",
-                    tjr: "admin",
-                    updatetime: "2020-08-02 20:10:54",
-                    wechat: "333",
-                }
-                ,{
-                    createtime: "2020-08-02 18:45:08",
-                    describe: "123",
-                    feedbacktype: "投诉反馈",
-                    id: 6,
-                    imgpath: "http://img.99114.com/group3/M00/44/E9/rBADvFsg24mADgpIAALIvglpQGg430_80_80.jpg,http://img4.99114.com/group3/M00/1B/A7/rBADu18oHxOAAYT3AADF37JrfjY236.jpg,http://www.99114.com/group3/M00/1A/D9/rBADu18MDt6AasDcAAAuc92Fgoo993.jpg,http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg,http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
-                    jjr: "admin",
-                    phone: "123",
-                    qq: "",
-                    reason: "ffffff",
-                    status: "已关闭",
-                    tjr: "admin",
-                    updatetime: "2020-08-02 20:20:57",
-                    wechat: "123"
-                }
-                ,{
-                    createtime: "2020-08-02 18:45:08",
-                    describe: "123",
-                    feedbacktype: "投诉反馈",
-                    id: 8,
-                    imgpath: "http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
-                    jjr: "admin",
-                    phone: "123",
-                    qq: "",
-                    reason: "ffffff",
-                    status: "已关闭",
-                    tjr: "admin",
-                    updatetime: "2020-08-02 20:20:57",
-                    wechat: "123"
-                },{
-                    createtime: "2020-08-02 18:45:08",
-                    describe: "123",
-                    feedbacktype: "投诉反馈",
-                    id: 8,
-                    imgpath: "http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
-                    jjr: "admin",
-                    phone: "123",
-                    qq: "",
-                    reason: "ffffff",
-                    status: "已关闭",
-                    tjr: "admin",
-                    updatetime: "2020-08-02 20:20:57",
-                    wechat: "123"
-                },{
-                    createtime: "2020-08-02 18:45:08",
-                    describe: "123",
-                    feedbacktype: "投诉反馈",
-                    id: 8,
-                    imgpath: "http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
-                    jjr: "admin",
-                    phone: "123",
-                    qq: "",
-                    reason: "ffffff",
-                    status: "已关闭",
-                    tjr: "admin",
-                    updatetime: "2020-08-02 20:20:57",
-                    wechat: "123"
-                },{
-                    createtime: "2020-08-02 18:45:08",
-                    describe: "123",
-                    feedbacktype: "投诉反馈",
-                    id: 8,
-                    imgpath: "http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
-                    jjr: "admin",
-                    phone: "123",
-                    qq: "",
-                    reason: "ffffff",
-                    status: "已关闭",
-                    tjr: "admin",
-                    updatetime: "2020-08-02 20:20:57",
-                    wechat: "123"
-                },{
-                    createtime: "2020-08-02 18:45:08",
-                    describe: "123",
-                    feedbacktype: "投诉反馈",
-                    id: 8,
-                    imgpath: "http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
-                    jjr: "admin",
-                    phone: "123",
-                    qq: "",
-                    reason: "ffffff",
-                    status: "已关闭",
-                    tjr: "admin",
-                    updatetime: "2020-08-02 20:20:57",
-                    wechat: "123"
-                },{
-                    createtime: "2020-08-02 18:45:08",
-                    describe: "123",
-                    feedbacktype: "投诉反馈",
-                    id: 8,
-                    imgpath: "http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
-                    jjr: "admin",
-                    phone: "123",
-                    qq: "",
-                    reason: "ffffff",
-                    status: "已关闭",
-                    tjr: "admin",
-                    updatetime: "2020-08-02 20:20:57",
-                    wechat: "123"
-                }
-            ]
+            // ,data:[
+            //     {
+            //         createtime: "2020-08-02 20:03:06",
+            //         describe: "qwerqwer",
+            //         feedbacktype: "软件使用障碍",
+            //         id: 7,
+            //         imgpath: "http://img1.99114.com/group3/M00/44/ED/rBADvVsg22mAB3PxAANeHq0SdqE776.jpg,http://img4.99114.com/group3/M00/1B/6D/rBADu18f9UeAesGwAAIfkhymy_M075.jpg,http://www.99114.com/group3/M00/1A/D9/rBADu18MDt6AasDcAAAuc92Fgoo993.jpg,http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
+            //         jjr: null,
+            //         phone: "222",
+            //         qq: "4444",
+            //         reason: "dddsdf解决了",
+            //         status: "已解决",
+            //         tjr: "admin",
+            //         updatetime: "2020-08-02 20:10:54",
+            //         wechat: "333",
+            //     }
+            //     ,{
+            //         createtime: "2020-08-02 18:45:08",
+            //         describe: "123",
+            //         feedbacktype: "投诉反馈",
+            //         id: 6,
+            //         imgpath: "http://img.99114.com/group3/M00/44/E9/rBADvFsg24mADgpIAALIvglpQGg430_80_80.jpg,http://img4.99114.com/group3/M00/1B/A7/rBADu18oHxOAAYT3AADF37JrfjY236.jpg,http://www.99114.com/group3/M00/1A/D9/rBADu18MDt6AasDcAAAuc92Fgoo993.jpg,http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg,http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
+            //         jjr: "admin",
+            //         phone: "123",
+            //         qq: "",
+            //         reason: "ffffff",
+            //         status: "已关闭",
+            //         tjr: "admin",
+            //         updatetime: "2020-08-02 20:20:57",
+            //         wechat: "123"
+            //     }
+            //     ,{
+            //         createtime: "2020-08-02 18:45:08",
+            //         describe: "123",
+            //         feedbacktype: "投诉反馈",
+            //         id: 8,
+            //         imgpath: "http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
+            //         jjr: "admin",
+            //         phone: "123",
+            //         qq: "",
+            //         reason: "ffffff",
+            //         status: "已关闭",
+            //         tjr: "admin",
+            //         updatetime: "2020-08-02 20:20:57",
+            //         wechat: "123"
+            //     },{
+            //         createtime: "2020-08-02 18:45:08",
+            //         describe: "123",
+            //         feedbacktype: "投诉反馈",
+            //         id: 8,
+            //         imgpath: "http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
+            //         jjr: "admin",
+            //         phone: "123",
+            //         qq: "",
+            //         reason: "ffffff",
+            //         status: "已关闭",
+            //         tjr: "admin",
+            //         updatetime: "2020-08-02 20:20:57",
+            //         wechat: "123"
+            //     },{
+            //         createtime: "2020-08-02 18:45:08",
+            //         describe: "123",
+            //         feedbacktype: "投诉反馈",
+            //         id: 8,
+            //         imgpath: "http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
+            //         jjr: "admin",
+            //         phone: "123",
+            //         qq: "",
+            //         reason: "ffffff",
+            //         status: "已关闭",
+            //         tjr: "admin",
+            //         updatetime: "2020-08-02 20:20:57",
+            //         wechat: "123"
+            //     },{
+            //         createtime: "2020-08-02 18:45:08",
+            //         describe: "123",
+            //         feedbacktype: "投诉反馈",
+            //         id: 8,
+            //         imgpath: "http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
+            //         jjr: "admin",
+            //         phone: "123",
+            //         qq: "",
+            //         reason: "ffffff",
+            //         status: "已关闭",
+            //         tjr: "admin",
+            //         updatetime: "2020-08-02 20:20:57",
+            //         wechat: "123"
+            //     },{
+            //         createtime: "2020-08-02 18:45:08",
+            //         describe: "123",
+            //         feedbacktype: "投诉反馈",
+            //         id: 8,
+            //         imgpath: "http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
+            //         jjr: "admin",
+            //         phone: "123",
+            //         qq: "",
+            //         reason: "ffffff",
+            //         status: "已关闭",
+            //         tjr: "admin",
+            //         updatetime: "2020-08-02 20:20:57",
+            //         wechat: "123"
+            //     },{
+            //         createtime: "2020-08-02 18:45:08",
+            //         describe: "123",
+            //         feedbacktype: "投诉反馈",
+            //         id: 8,
+            //         imgpath: "http://www.99114.com/group3/M00/1A/D7/rBADu18L_6SAK7FLAAAuASbSqhQ063.jpg",
+            //         jjr: "admin",
+            //         phone: "123",
+            //         qq: "",
+            //         reason: "ffffff",
+            //         status: "已关闭",
+            //         tjr: "admin",
+            //         updatetime: "2020-08-02 20:20:57",
+            //         wechat: "123"
+            //     }
+            // ]
             ,page: {
                 layout: ['prev', 'page', 'next', 'count', 'skip']
             },
             cols: [
                 [ //表头
                     {
-                        field: 'phone',
+                        field: 'title',
                         width: 90,
                         title: '标题',
-                        toolbar: '#test-table-operate-barDemo-cellA',
+                        // toolbar: '#test-table-operate-barDemo-cellA',
+                        templet: function(d) {
+                            return '<div><img src="' + imageUrl + '/' + d.video_image + '" width="80" height="80"/></div>';
+                        },
                     },{
                         title: '',
                         toolbar: '#test-table-operate-barDemo-cellB',
                     },{
-                        field: 'qq',
+                        field: '',
                         width: 120,
                         title: '',
                         toolbar: '#test-table-operate-barDemo-cellC',
                     },{
-                        field: 'tjr',
+                        field: '',
                         width: 160,
                         title: '',
                         toolbar: '#test-table-operate-barDemo-cellD',
                     },{
-                        field: 'createtime',
+                        field: '',
                         title: '',
                         toolbar: '#test-table-operate-barDemo-cellE',
                     },{
@@ -222,16 +231,12 @@ layui.config({
                 ]
             ],
             parseData: function(res){
+                // console.log("res----",res)
                 if(res.code == 302){
                     top.location.href = setter.loginUrl;
                     return;
                 }
-                return {
-                    "code": 0,
-                    "msg": "",
-                    "count": res.count,
-                    "data": res.afterSales || [] 
-                }
+                return res;
             },
             
             event: true,
@@ -241,15 +246,19 @@ layui.config({
             even: true,
             limits: [5, 10, 15],
             done: function(res, curr, count) {
+                layer.closeAll();
+
                 //表格内嵌相册
-                if(res.data.length){
-                    for (i = 0; i < res.data.length; i++) { 
-                        layer.photos({
-                            photos:'.layer-photos-demo'+res.data[i].id,
-                            anim:2
-                        })
-                    }
-                }
+                // if(res.data.length){
+                //     for (i = 0; i < res.data.length; i++) { 
+                //         layer.photos({
+                //             photos:'.layer-photos-demo'+res.data[i].id,
+                //             anim:2
+                //         })
+                //     }
+                // }
+
+
                 // $('th').hide();//表头隐藏的样式
                 // $('.layui-table-page').css('margin-top','40px');//页码部分的高度调整
 
@@ -264,47 +273,55 @@ layui.config({
         });
     }
 
-    function deleteAfterSales(id){
+    function deleteVideo(id){
         $.Ajax({
             async: false,
-            url: server + "/ADMINM/aftersales/deleteAfterSales",
+            url: server + "/circle/examine/delete",
             dataType: "json",
             method: 'get',
-            data:{"ID":id},
+            data:{"id":id},
             success: function(obj) {
-                console.log(obj);
-                if(obj.code == 1){
-                    tableRender();
-
+                // console.log(obj);
+                if(obj.code == 0){
                     layer.msg("删除成功");
-                }
-            }
-        });
-    }
-
-    function deleteAfterSales(ids){
-        $.Ajax({
-            async: false,
-            url: server + "/ADMINM/aftersales/deleteAll",
-            dataType: "json",
-            method: 'get',
-            data:{"IDS":ids},
-            success: function(obj) {
-                console.log(obj);
-                if(obj.code == 1){
                     tableRender();
-
-                    layer.msg("删除成功");
+                }else{
+                    layer.msg(obj.msg || "删除成功");
                 }
+
+                layer.closeAll();
             }
         });
     }
 
     
-    form.on('select(component-types)', function(data){
+    $("#search").on({
+        keyup : function(e){        
+            var flag = e.target.isNeedPrevent;
+            if(flag)  return;     
+            tableRender();
+            e.target.keyEvent = false ;
+        },
+        keydown : function(e){
+            e.target.keyEvent = true ; 
+        },
+        input : function(e){
+            if(!e.target.keyEvent){
+                tableRender();
+            }
+        },
+        compositionstart : function(e){
+            e.target.isNeedPrevent = true ;
+        },
+        compositionend : function(e){
+            e.target.isNeedPrevent = false;
+        }
+    });
+
+    form.on('select(component-type)', function(data){
         tableRender();
     });
-    form.on('select(component-status)', function(data){
+    form.on('select(component-sort)', function(data){
         tableRender();
     });
 
@@ -362,25 +379,26 @@ layui.config({
              * 编排规则的借口提供之后需要接入删除
              */
             layer.confirm('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除后无法恢复！确定删除吗？&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',{title:'删除提醒',btnAlign:'c'}, function() {
-                deleteAfterSales(data.id);
+                deleteVideo(data.id);
                 // layer.close(index);
             });
         } else if (obj.event === 'edit') {
+            window.sessionStorage.setItem("__videodetail",JSON.stringify(data));
+
             layer.open({
                 type: 2,
-                title: '编辑反馈',
+                title: '编辑资源',
                 area: ['100%', '100%'],
                 btn: ['保存', '取消'],
                 btnAlign: 'c',
                 maxmin: true,
-                content: 'aftersales_edit_pop.html?ID='+data.id,
+                content: 'select_add_pop.html?id='+data.id,
                 yes: function(index, layero) {
                     var submit = layero.find('iframe').contents().find("#submit");
                     submit.click();
                 }
             });
         }
-
     });
 
     var $ = layui.$,
@@ -393,7 +411,7 @@ layui.config({
         add: function() {
             layer.open({
                 type: 2,
-                title: '添加反馈',
+                title: '添加资源',
                 area: ['100%', '100%'],
                 btn: ['保存', '取消'],
                 btnAlign: 'c',
@@ -407,12 +425,12 @@ layui.config({
         },
         //点击删除
         del: function() { 
-            if(arrangeList.length == 0 ) {
-                return layer.msg("请选择再批量删除")
-            }
-            layer.confirm('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除后无法恢复！确定删除吗？&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',{title:'删除提醒',btnAlign:'c'}, function() {
-                deleteAfterSales(arrangeList.join(','));
-            })
+            // if(arrangeList.length == 0 ) {
+            //     return layer.msg("请选择再批量删除")
+            // }
+            // layer.confirm('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除后无法恢复！确定删除吗？&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',{title:'删除提醒',btnAlign:'c'}, function() {
+            //     deleteAfterSales(arrangeList.join(','));
+            // })
         },
         //刷新
         refresh: function() {

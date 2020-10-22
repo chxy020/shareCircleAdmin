@@ -22,8 +22,9 @@ layui.config({
     // var types = ["","硬件故障","软件故障","硬件使用障碍","软件使用障碍","优化建议","投诉反馈","其它"];
     // var imgpaths = [];
 
-    var role_ID = setter.getUrlParam("role_ID",uri) || "";
+    var id = setter.getUrlParam("id",uri) || "";
 
+    $("#uid").val(uid);
 
     // upload.render({
     //     elem: '#test5',
@@ -56,24 +57,16 @@ layui.config({
     // });
 
 
-    // if(role_ID){
-    //     //编辑
-    //     $.Ajax({
-    //         async: false,
-    //         url: server + "/ADMINM/role/toEdit",
-    //         dataType: "json",
-    //         method: 'get',
-    //         data:{"ROLE_ID":role_ID},
-    //         success: function(obj) {
-    //             if(obj.code == 1){
-    //                 changeRoleHtml(obj.data || {});
-    //             }else{
-    //                 layer.msg(obj.msg || "获取角色详情错误");
-    //             }
-               
-    //         }
-    //     });
-    // }
+    if(id){
+        var detail = window.sessionStorage.getItem("__videodetail");
+        if(detail){
+            detail = JSON.parse(detail);
+
+            $("#title").val(detail.title);
+            $("#describe").val(detail.describe);
+        }
+        // console.log(detail)
+    }
     
     //监听提交
     form.on('submit(submit)', function(data){
@@ -96,31 +89,43 @@ layui.config({
         //     addRole(condi);
         // }
 
-        saveVideo(data.field);
+        if(id){
+
+        }else{
+            saveVideo();
+        }
         
         return false;
     });
 
-    function saveVideo(field){
+    function saveVideo(){
+        layer.load(2);
+
+        var formdata = new FormData(document.getElementById("form"))
         $.Ajax({
             url: server + "/circle/examine/saveVideo",
-            dataType: "json",
+            // dataType: "json",
             method: 'post',
-            data:field,
+            data:formdata,
+            processData:false,   //  告诉jquery不要处理发送的数据
+            contentType:false,   // 告诉jquery不要设置content-Type请求头
             success: function(obj) {
-                debugger
-                if(obj.code == 1){
-                    // layer.msg("添加成功");
+                if(obj.code == 0){
+                    layer.msg("添加成功");
 
-                    // setTimeout(function(){
-                    //     //刷新父页面
-                    //     window.parent.location.reload();
-                    //     var index = parent.layer.getFrameIndex(window.name);
-               		//     parent.layer.close(index);
-                    // },500);
+                    setTimeout(function(){
+                        //刷新父页面
+                        window.parent.location.reload();
+                        var index = parent.layer.getFrameIndex(window.name);
+               		    parent.layer.close(index);
+                    },500);
                 }else{
                     layer.msg(obj.msg || "添加失败");
                 }
+                layer.closeAll();
+            },
+            error:function(){
+                layer.closeAll();
             }
         });
     }

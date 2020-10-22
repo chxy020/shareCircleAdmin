@@ -260,7 +260,7 @@
 							<input type="text" id="search" name="search" placeholder="搜索的标题" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-input-inline layui-show-xs-block">
-							<select id="revealType" lay-filter="component-status" name="contrller">
+							<select id="revealType" lay-filter="component-type" name="contrller">
 								<option value="">选择展开状态</option>
 								<option value="0">全部</option>
 								<option value="1">启用</option>
@@ -268,7 +268,7 @@
 							</select>
 						</div>
 						<div class="layui-input-inline layui-show-xs-block">
-							<select id="sort" lay-filter="component-sex" name="contrller">
+							<select id="sort" lay-filter="component-sort" name="contrller">
 								<option value="">选择排序方式</option>
 								<option value="0">最近发布</option>
 								<option value="1">最早发布</option>
@@ -301,30 +301,32 @@
 					</div>
 					<!-- 表格 -->
 					<table id="test-table-operate" lay-filter="test-table-operate"></table>
+					<!--
 					<script type="text/html" id="test-table-operate-barDemo-cellA">
-						<div><img src="../images/moren.jpg" width="80" height="80"/></div>
+						<div><img src="{{imageUrl + d.video_image}}" width="80" height="80"/></div>
 					</script>
+					-->
 					<script type="text/html" id="test-table-operate-barDemo-cellB">
 						<div>
-							<div class="biaoti">高清刘德华演唱会1998版.mp4</div>
-							<div class="borderF"><img src="../images/icona.png" width="24" />高清刘德华演唱会1998版.mp4</div>
+							<div class="biaoti">{{d.title}}</div>
+							<div class="borderF"><img src="../images/icona.png" width="24" />{{d.title}}</div>
 						</div>
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellC">
 						<div style="text-align: left;white-space:nowrap;">
-							<div class="jinbi"><span>35</span>金币</div>
-							<div class="size"><span>MP4</span>4.5G</div>
+							<div class="jinbi"><span>{{d.pirce}}</span>金币</div>
+							<div class="size"><span>{{d.video_type}}</span>{{d.video_size}}</div>
 						</div>
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellD">
 						<div style="text-align: left;white-space:nowrap;">
 							<div class="touxiang"><img src="../images/headImg.png" width="24" />admin</div>
-							<div class="zinfo"><span>分享：400</span><span>转存：6000</span></div>
-							<div class="times">2020.10.10 12.34</div>
+							<div class="zinfo"><span>分享：{{d.share_num}}</span><span>下载：{{d.download}}</span></div>
+							<div class="times">{{d.create_time}}</div>
 						</div>
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellE">
-						<p class="textx">内容内容内容内容内容内容内容内容内容内容内容,内容内容内容内容内容内容内容内容内容,内容内容内容内容内容内容内容</p>
+						<p class="textx">{{d.describe == null ? '' : d.describe}}</p>
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellF">
 						<div class="switchStyle" lay-event="switch" id="switch">
