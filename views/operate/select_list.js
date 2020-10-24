@@ -51,7 +51,6 @@ layui.config({
 
 
     function tableRender(){
-        layer.load(2);
 
         var search = $("#search").val();
         var revealType = $("#revealType").val();
@@ -201,6 +200,7 @@ layui.config({
                         field: 'title',
                         width: 90,
                         title: '标题',
+                        event: 'row',
                         // toolbar: '#test-table-operate-barDemo-cellA',
                         templet: function(d) {
                             return '<div><img src="' + imageUrl + '/' + d.video_image + '" width="80" height="80"/></div>';
@@ -246,7 +246,7 @@ layui.config({
             even: true,
             limits: [5, 10, 15],
             done: function(res, curr, count) {
-                layer.closeAll();
+                
 
                 //表格内嵌相册
                 // if(res.data.length){
@@ -289,6 +289,28 @@ layui.config({
                     layer.msg(obj.msg || "删除成功");
                 }
 
+                layer.closeAll();
+            }
+        });
+    }
+
+    function updateIsHide(data){
+        layer.load(2);
+        $.Ajax({
+            async: true,
+            url: server + "/circle/examine/updateIsHide",
+            dataType: "json",
+            method: 'post',
+            data:{"circleId":data.id,"ishide":+!data.ishide},
+            success: function(obj) {
+                // console.log(obj);
+                if(obj.code == 0){
+                    data.ishide = +!data.ishide;
+                    layer.msg("设置成功");
+                }else{
+                    layer.msg(obj.msg || "设置失败");
+                }
+                layui.table.reload('test-table-operate');
                 layer.closeAll();
             }
         });
@@ -370,6 +392,10 @@ layui.config({
         }
     });
 
+    // table.on('row(test-table-operate)', function(obj){
+    //     var data = obj.data || {};
+        
+    // });
     //监听工具条
     table.on('tool(test-table-operate)', function(obj) {
         var data = obj.data;
@@ -398,6 +424,25 @@ layui.config({
                     submit.click();
                 }
             });
+        } else if(obj.event == 'row'){
+            window.sessionStorage.setItem("__videodetail",JSON.stringify(data));
+
+            layer.open({
+                type: 2,
+                title: '视频详情',
+                area: ['100%', '100%'],
+                btn: ['关闭'],
+                btnAlign: 'c',
+                maxmin: true,
+                content: 'select_details_pop.html?id='+data.id,
+                yes: function(index, layero) {
+                    // var submit = layero.find('iframe').contents().find("#submit");
+                    // submit.click();
+                }
+            });
+        } else if(obj.event == 'switch'){
+            updateIsHide(data);
+            return false;
         }
     });
 

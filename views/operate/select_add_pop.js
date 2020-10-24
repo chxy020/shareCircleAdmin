@@ -24,7 +24,11 @@ layui.config({
 
     var id = setter.getUrlParam("id",uri) || "";
 
-    $("#uid").val(uid);
+    if(id){
+        $("#id").val(id);
+    }else{
+        $("#uid").val(uid);
+    }
 
     // upload.render({
     //     elem: '#test5',
@@ -89,11 +93,7 @@ layui.config({
         //     addRole(condi);
         // }
 
-        if(id){
-
-        }else{
-            saveVideo();
-        }
+        saveVideo();
         
         return false;
     });
@@ -111,7 +111,11 @@ layui.config({
             contentType:false,   // 告诉jquery不要设置content-Type请求头
             success: function(obj) {
                 if(obj.code == 0){
-                    layer.msg("添加成功");
+                    if(id){
+                        layer.msg("修改成功");
+                    }else{
+                        layer.msg("添加成功");
+                    }
 
                     setTimeout(function(){
                         //刷新父页面
@@ -130,31 +134,5 @@ layui.config({
         });
     }
 
-    function editRole(condi){
-        condi.ROLE_ID = role_ID;
-
-        $.Ajax({
-            async: false,
-            url: server + "/ADMINM/role/edit",
-            dataType: "json",
-            method: 'post',
-            data:condi,
-            success: function(obj) {
-                if(obj.code == 1){
-                    layer.msg("修改成功");
-
-                    setTimeout(function(){
-                        //刷新父页面
-                        window.parent.location.reload();
-                        var index = parent.layer.getFrameIndex(window.name);
-               		    parent.layer.close(index);
-                    },1500);
-                }else{
-                    layer.msg(obj.msg || "修改失败");
-                }
-            }
-        });
-    }
-    
 
 });

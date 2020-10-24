@@ -10,6 +10,7 @@ layui.config({
         $ = layui.jquery;
 
     var server = setter.baseUrl;
+    var imageUrl = setter.imageUrl;
 
     // var statusarr = ["","处理中","已关闭","已解决","待定"];
     // var types = ["","硬件故障","软件故障","硬件使用障碍","软件使用障碍","优化建议","投诉反馈","其它"];
@@ -54,7 +55,6 @@ layui.config({
 
 
     function tableRender(){
-        layer.load(2);
 
         var search = $("#search").val();
         var sortType = $("#sortType").val();
@@ -199,10 +199,13 @@ layui.config({
             cols: [
                 [ //表头
                     {
-                        field: 'phone',
+                        field: 'title',
                         width: 90,
                         title: '标题',
-                        toolbar: '#test-table-operate-barDemo-cellA',
+                        // toolbar: '#test-table-operate-barDemo-cellA',
+                        templet: function(d) {
+                            return '<div><img src="' + imageUrl + '/' + d.video_image + '" width="80" height="80"/></div>';
+                        },
                     },{
                         title: '',
                         toolbar: '#test-table-operate-barDemo-cellB',
@@ -219,7 +222,16 @@ layui.config({
                     },{
                         field: 'createtime',
                         title: '',
-                        toolbar: '#test-table-operate-barDemo-cellE',
+                        // toolbar: '#test-table-operate-barDemo-cellE',
+                        templet: function(d) {
+                            if(apiType == 0){
+                                return '<p class="textx">申请时间：<span style="display:inline-block">'+d.time+'</p>';
+                            }else if(apiType == 1){
+                                return '<p class="textx">申请时间：<span style="display:inline-block">'+d.time+'</p>';
+                            }else if(apiType == 2){
+                                return '<p class="textx">拒绝原因：<span style="display:inline-block">'+d.refusal_cause+'</p>';
+                            }
+                        },
                     },{
                         field: 'status',
                         title: '操作',
@@ -243,7 +255,6 @@ layui.config({
             even: true,
             limits: [5, 10, 15],
             done: function(res, curr, count) {
-                layer.closeAll();
 
                 //表格内嵌相册
                 // if(res.data.length){
@@ -410,6 +421,60 @@ layui.config({
                     submit.click();
                 }
             });
+        } else if(obj.event == 'publish'){
+            window.sessionStorage.setItem("__videodetail",JSON.stringify(data));
+            if(apiType == 0){
+                layer.open({
+                    type: 2,
+                    title: '审核视频',
+                    area: ['100%', '100%'],
+                    btn: ['通过','拒绝','取消'],
+                    btnAlign: 'c',
+                    maxmin: true,
+                    content: 'circleAudit_audit_pop.html?id='+data.id+"&apiType="+apiType,
+                    yes: function(index, layero) {
+                        var submit = layero.find('iframe').contents().find("#submit");
+                        submit.click();
+                        return false;
+                    },
+                    btn2: function(index, layero) {
+                        var submit = layero.find('iframe').contents().find("#submit2");
+                        submit.click();
+                        return false;
+                    }
+                });
+            }else if(apiType == 1){
+                layer.open({
+                    type: 2,
+                    title: '审核视频',
+                    area: ['100%', '100%'],
+                    btn: ['拒绝', '取消'],
+                    btnAlign: 'c',
+                    maxmin: true,
+                    content: 'circleAudit_audit_pop.html?id='+data.id+"&apiType="+apiType,
+                    yes: function(index, layero) {
+                        var submit = layero.find('iframe').contents().find("#submit2");
+                        submit.click();
+                        return false;
+                    }
+                });
+            }else if(apiType == 2){
+                layer.open({
+                    type: 2,
+                    title: '审核视频',
+                    area: ['100%', '100%'],
+                    btn: ['通过', '取消'],
+                    btnAlign: 'c',
+                    maxmin: true,
+                    content: 'circleAudit_audit_pop.html?id='+data.id+"&apiType="+apiType,
+                    yes: function(index, layero) {
+                        var submit = layero.find('iframe').contents().find("#submit");
+                        submit.click();
+                        return false;
+                    }
+                });
+            }
+            
         }
 
     });

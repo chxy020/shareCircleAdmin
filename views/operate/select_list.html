@@ -307,30 +307,30 @@
 					</script>
 					-->
 					<script type="text/html" id="test-table-operate-barDemo-cellB">
-						<div>
+						<div lay-event="row" >
 							<div class="biaoti">{{d.title}}</div>
 							<div class="borderF"><img src="../images/icona.png" width="24" />{{d.title}}</div>
 						</div>
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellC">
-						<div style="text-align: left;white-space:nowrap;">
+						<div lay-event="row" style="text-align: left;white-space:nowrap;">
 							<div class="jinbi"><span>{{d.pirce}}</span>金币</div>
 							<div class="size"><span>{{d.video_type}}</span>{{d.video_size}}</div>
 						</div>
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellD">
-						<div style="text-align: left;white-space:nowrap;">
-							<div class="touxiang"><img src="../images/headImg.png" width="24" />admin</div>
+						<div lay-event="row" style="text-align: left;white-space:nowrap;">
+							<div class="touxiang"><img src="../images/headImg.png" width="24" />{{d.username}}</div>
 							<div class="zinfo"><span>分享：{{d.share_num}}</span><span>下载：{{d.download}}</span></div>
 							<div class="times">{{d.create_time}}</div>
 						</div>
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellE">
-						<p class="textx">{{d.describe == null ? '' : d.describe}}</p>
+						<p lay-event="row" class="textx">{{d.describe == null ? '' : d.describe}}</p>
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellF">
 						<div class="switchStyle" lay-event="switch" id="switch">
-							{{#  if(d.STATUS == 1){ }}
+							{{#  if(+d.ishide == 0){ }}
 							<input type="checkbox" checked="" lay-skin="switch"><!--开-->
 							{{#  } else{ }}
 							<input type="checkbox" lay-skin="switch">

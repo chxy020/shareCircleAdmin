@@ -200,7 +200,7 @@
 <body>
 <form method="post" class="layui-form" >
     <div class="layui-form" lay-filter="layuiadmin-app-form-list" id="layuiadmin-app-form-list" style="padding: 20px 20px 0 20px; ">
-        <div class="">
+        <!-- <div class="">
             <div class="rightbt">xxx电影专题</div>
             <h3>刘德华演唱会.mp4</h3>
             <div class="size"><span>MP4</span>4.5G<s>2020-10-21 11:37:57</s></div>
@@ -217,19 +217,40 @@
         <div class="chuC mt10">
             <div class="jinbix" style="padding-left:10px">所需金币：<span>35</span>金币</div>
             <div class="zinfo"><span>分享：400</span><span>转存：6000</span></div>
+        </div> -->
+        <div class="" id="info1">
+            <div class="rightbt">xxx电影专题</div>
+            <h3>xxx.mp4</h3>
+            <div class="size"><span>MP4</span>4.5G<s>2020-10-21 11:37:57</s></div>
         </div>
+        <div class="select_cont" id="info2">
+            
+        </div>
+        <div class="chuC mt10" id="info3" >
+            <!--
+            <div class="borderF"><img src="../images/icona.png" width="24" />高清刘德华演唱会1998版.mp4</div>
+            <div class="borderF infoxx"><img src="../images/headImg.png" width="24" />我是勤劳的搬运工<span class="a">45</span><span class="b">资源</span></div>
+            -->
+        </div>
+        <div class="chuC mt10" id="info4">
+            <!--
+            <div class="jinbix">所需金币：<span>35</span>金币</div>
+            <div class="zinfo"><span>分享：400</span><span>转存：6000</span></div>
+            -->
+        </div>
+
         <div class="layui-form-item" style="margin-top: 20px;">
             <label class="layui-form-label"><span>*</span>拒绝原因：</label>
             <div class="layui-input-block">
-                <input type="text" placeholder="拒绝原因 最多20个字" autocomplete="off" class="layui-input" id="PHONE" name="PHONE">
+                <input type="text" maxlength="20" placeholder="拒绝原因 最多20个字" autocomplete="off" class="layui-input" id="refusal_cause" name="refusal_cause" />
             </div>
-            <div class="layui-btn-block">
+            <!-- <div class="layui-btn-block">
                 <button class="layui-btn layui-ds layui-btn-primary" data-type="add" id="add" data="添加">
                     拒绝
                 </button>
-            </div>
+            </div> -->
         </div>
-        <div class="layui-form-item">
+        <!-- <div class="layui-form-item">
             <label class="layui-form-label"><span>*</span>纳入专题：</label>
             <div class="layui-input-block">
                 <select id="FEEDBACKTYPE" lay-verify="required" name="FEEDBACKTYPE">
@@ -247,8 +268,11 @@
                     通过
                 </button>
             </div>
-        </div>
+        </div> -->
     </div>
+
+    <button style="display: none;" class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="submit" id="submit">通过</button>
+    <button style="display: none;" class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="submit2" id="submit2">拒绝</button>
 </form>
 <script src="circleAudit_audit_pop.js" type="text/javascript" charset="utf-8"></script>
 </body>

@@ -174,33 +174,33 @@
 					</div>
 					<!-- 表格 -->
 					<table id="test-table-operate" lay-filter="test-table-operate"></table>
-					<script type="text/html" id="test-table-operate-barDemo-cellA">
+					<!-- <script type="text/html" id="test-table-operate-barDemo-cellA">
 						<div><img src="../images/moren.jpg" width="80" height="80"/></div>
-					</script>
+					</script> -->
 					<script type="text/html" id="test-table-operate-barDemo-cellB">
 						<div>
-							<div class="biaoti">高清刘德华演唱会1998版.mp4</div>
-							<div class="borderF"><img src="../images/icona.png" width="24" />高清刘德华演唱会1998版.mp4</div>
+							<div class="biaoti">{{d.title}}</div>
+							<div class="borderF"><img src="../images/icona.png" width="24" />{{d.title}}</div>
 						</div>
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellC">
 						<div style="text-align: left;white-space:nowrap;">
-							<div class="jinbi"><span>35</span>金币</div>
-							<div class="size"><span>MP4</span>4.5G</div>
+							<div class="jinbi"><span>{{d.pirce}}</span>金币</div>
+							<div class="size"><span>{{d.video_type}}</span>{{d.video_size}}</div>
 						</div>
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellD">
 						<div style="text-align: left;white-space:nowrap;">
-							<div class="touxiang"><img src="../images/headImg.png" width="24" />admin</div>
-							<div class="zinfo"><span>分享：400</span><span>转存：6000</span></div>
-							<div class="times">2020.10.10 12.34</div>
+							<div class="touxiang"><img src="../images/headImg.png" width="24" />{{d.username}}</div>
+							<div class="zinfo"><span>分享：{{d.share_num}}</span><span>下载：{{d.download}}</span></div>
+							<div class="times">{{d.create_time}}</div>
 						</div>
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellE">
-						<p class="textx">申请时间：<span style="display:inline-block">2020-10-21 16:11:33</p>
+						<p class="textx">申请时间：<span style="display:inline-block">{{d.time}}</p>
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellF">
-						<button class="layui-btn layui-ds layui-btn-primary" data-type="add" id="add" data="添加">
+						<button class="layui-btn layui-ds layui-btn-primary" lay-event="publish" data-type="publish" id="publish" data="审核">
 							<span class="iconfont icon-shenhe"></span>审核
 						</button>
 					</script>

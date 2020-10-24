@@ -97,15 +97,18 @@ layui.config({
         // KEYDATA格式qwer+用户名+,fh,+密码Q+,fh,+图片验证码
         var username = $("#username").val();
         var password = $("#password").val();
-        var code = "qwer"+username+",fh,"+password+"Q"+",fh,"+$("#code").val();
+        var condi = {};
+        condi.username = username;
+        condi.password = password;
+        // var code = "qwer"+username+",fh,"+password+"Q"+",fh,"+$("#code").val();
         // data:{KEYDATA:"qweradmin,fh,Zj666Q,fh,zykj",tm:new Date().getTime()},
-        console.log(123123)
+        // console.log(123123)
         $.ajax({
             type: "POST",
-            url: server + "/ADMINM/login_login",
-            dataType: 'json',
+            url: server + "/circle/user/login",
+            // dataType: 'json',
             async: true,
-            data: {KEYDATA:code,tm:new Date().getTime()},
+            data: condi,
             xhrFields: {
                 withCredentials: true
             },
