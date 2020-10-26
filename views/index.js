@@ -76,34 +76,45 @@ layui.config({
     // });
 
     window.__getUserInfo = getUserInfo;
-    function getUserInfo(userid){
-        $.Ajax({
-            async: false,
-            type: "GET",
-            url: server + "/ADMINM/user/userInfo",
-            datatype: 'json',
-            data:{"USER_ID":userid},
-            xhrFields: {
-                withCredentials: true
-            },
-            //成功的回调函数
-            success: function (obj) {
-                if(obj.code == 1){
-                    var user = obj.user || {};
-                    if(user.headimg != "" && user.headimg.indexOf("headImg.png") == -1){
-                        $("#headimg").attr("src",server + user.headimg);
-                    }
+    getUserInfo();
+    function getUserInfo(){
+        var userinfo = window.sessionStorage.getItem("__userinfo") || "";
+        if(userinfo){
+            userinfo = JSON.parse(userinfo);
+            $("#phone").html(userinfo.phone || "");
+            $("#username").html(userinfo.nickname || "");
+        }else{
+            location.href = "/views/user/login.html";
+            return;
+        }
 
-                    $("#phone").html(user.phone || "");
-                    $("#username").html(user.username || "");
+        // $.Ajax({
+        //     async: false,
+        //     type: "GET",
+        //     url: server + "/ADMINM/user/userInfo",
+        //     datatype: 'json',
+        //     data:{"USER_ID":userid},
+        //     xhrFields: {
+        //         withCredentials: true
+        //     },
+        //     //成功的回调函数
+        //     success: function (obj) {
+        //         if(obj.code == 1){
+        //             var user = obj.user || {};
+        //             if(user.headimg != "" && user.headimg.indexOf("headImg.png") == -1){
+        //                 $("#headimg").attr("src",server + user.headimg);
+        //             }
 
-                    window.__user = obj.user;
-                }
-            },
-            error: function (error) {
-                console.log(error)
-            },
-        });
+        //             $("#phone").html(user.phone || "");
+        //             $("#username").html(user.username || "");
+
+        //             window.__user = obj.user;
+        //         }
+        //     },
+        //     error: function (error) {
+        //         console.log(error)
+        //     },
+        // });
     }
     
     function buildMenuData(data){
@@ -177,12 +188,14 @@ layui.config({
             $.Ajax({
                 async: false,
                 type: "post",
-                url:server + "/ADMINM/logout",
+                url:server + "/circle/user/logout",
                 dataType: "json",
                 xhrFields: {
                     withCredentials: true
                 },
                 success: function(obj) {
+                    location.href = "/views/user/login.html";
+                    return;
                 },
                 //失败的回调函数
                 error: function() {

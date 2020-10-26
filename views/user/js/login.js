@@ -11,8 +11,8 @@ layui.config({
 
     var saveAccount = false;
 
-    $("#username").val("admin");
-    $("#password").val("Zj666");
+    // $("#username").val("admin");
+    // $("#password").val("Zj666");
 
     var active = {
         forgetPop: function() {
@@ -124,22 +124,18 @@ layui.config({
             // },
             //成功的回调函数
             success: function (data) {
-                var msg = "";
-                if("success" == data.result){
+                if(data.code == 0){
                     saveAccountName();
+
+                    //保存登录信息
+                    window.sessionStorage.setItem("__userinfo",JSON.stringify(data.data));
 
                     location.href = "../index.html"
                     // window.location.href="main/index";
                     // alert("登录成功");
                     return;
-                }else if("usererror" == data.result){
-                    msg = "用户名或密码有误";
-                }else if("codeerror" == data.result){
-                    msg = "验证码输入有误";
-                }else{
-                    msg = "缺少参数";
                 }
-                layer.msg(msg);
+                layer.msg(data.msg || "登录失败");
             },
             error: function (error) {
                 console.log(error)
@@ -149,5 +145,5 @@ layui.config({
     }
 
     isSaveAccountName();
-    getImageCode();
+    // getImageCode();
 });

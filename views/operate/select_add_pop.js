@@ -101,32 +101,39 @@ layui.config({
     function saveVideo(){
         layer.load(2);
 
+        var url = server + "/circle/examine/saveVideo";
+        if(id){
+            url = server + "/circle/examine/modifyVideo";
+        }
         var formdata = new FormData(document.getElementById("form"))
         $.Ajax({
-            url: server + "/circle/examine/saveVideo",
+            url: url,
             // dataType: "json",
             method: 'post',
             data:formdata,
             processData:false,   //  告诉jquery不要处理发送的数据
             contentType:false,   // 告诉jquery不要设置content-Type请求头
             success: function(obj) {
-                if(obj.code == 0){
+                layer.closeAll();
+
+                if(obj.code == 1 || obj.code == 0){
                     if(id){
                         layer.msg("修改成功");
                     }else{
                         layer.msg("添加成功");
                     }
 
+                    
                     setTimeout(function(){
                         //刷新父页面
                         window.parent.location.reload();
                         var index = parent.layer.getFrameIndex(window.name);
                		    parent.layer.close(index);
-                    },500);
+                    },1500);
                 }else{
                     layer.msg(obj.msg || "添加失败");
                 }
-                layer.closeAll();
+                
             },
             error:function(){
                 layer.closeAll();
