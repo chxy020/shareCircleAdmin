@@ -8,6 +8,7 @@ layui.config({
     setter = layui.setter;
     // window.element = layui.element;
     var server = setter.baseUrl;
+    var loginUrl = setter.loginUrl;
     
     // $.Ajax({
     //     async: false,
@@ -84,7 +85,7 @@ layui.config({
             $("#phone").html(userinfo.phone || "");
             $("#username").html(userinfo.nickname || "");
         }else{
-            location.href = "/views/user/login.html";
+            location.href = loginUrl;
             return;
         }
 
@@ -194,7 +195,7 @@ layui.config({
                     withCredentials: true
                 },
                 success: function(obj) {
-                    location.href = "/views/user/login.html";
+                    location.href = loginUrl;
                     return;
                 },
                 //失败的回调函数
