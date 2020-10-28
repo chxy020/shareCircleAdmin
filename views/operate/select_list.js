@@ -203,7 +203,7 @@ layui.config({
                         event: 'row',
                         // toolbar: '#test-table-operate-barDemo-cellA',
                         templet: function(d) {
-                            return '<div><img src="' + imageUrl + '/' + d.video_image + '" width="80" height="80"/></div>';
+                            return '<div><img src="' + d.video_image + '" width="80" height="80"/></div>';
                         },
                     },{
                         title: '',

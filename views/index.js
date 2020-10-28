@@ -82,8 +82,8 @@ layui.config({
         var userinfo = window.sessionStorage.getItem("__userinfo") || "";
         if(userinfo){
             userinfo = JSON.parse(userinfo);
-            $("#phone").html(userinfo.phone || "");
-            $("#username").html(userinfo.nickname || "");
+            $("#phone").html(userinfo.username || "");
+            $("#username").html(userinfo.nick || "");
         }else{
             location.href = loginUrl;
             return;

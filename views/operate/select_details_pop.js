@@ -69,7 +69,7 @@ layui.config({
 
             var info2 = [];
             info2.push('<p>' + detail.describe+ '</p>');
-            info2.push('<video height="450px" poster="' + imageUrl + '/' + detail.video_image + '"  src="' + detail.video_path + '" type="video/mp4" width="100%" playsinline  height="100%" controls  ></video>');
+            info2.push('<video height="450px" poster="' + detail.video_image + '"  src="' + detail.video_path + '" type="video/mp4" width="100%" playsinline  height="100%" controls  ></video>');
            
             $("#info2").html(info2.join(''));
 
