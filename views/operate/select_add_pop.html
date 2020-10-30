@@ -41,6 +41,52 @@
             padding:0 8px;
             margin-right: 10px;
         }
+
+        .htmleaf-container{
+            margin: 0 auto;
+        }
+        .htmleaf-content-bg{
+            position: fixed;
+            left:0;
+            top:0;
+            bottom: 0;
+            right: 0;
+            background-color:rgba(0,0,0,.8);
+        }
+        .htmleaf-content{
+            width: 600px;
+            height: 100px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-left:-300px;
+            margin-top:-50px;
+            color: #fff;
+        }
+        .center{text-align:center;}
+        .progressbar {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 35px;
+            position: relative;
+            background-color: #EEEEEE;
+            box-shadow: inset 0px 1px 1px rgba(0,0,0,.1);
+        }
+
+        .proggress{
+            height: 8px;
+            width: 10px;
+            background-color: #3498db;
+            margin-top:20px
+        }
+
+        .percentCount{
+            float:right;
+            margin-top: 10px;
+            clear: both;
+            font-weight: bold;
+            font-family: Arial
+        }
     </style>
 </head>
 <body>
@@ -102,6 +148,22 @@
     <input type="hidden" id="id" name="id" />
     <button style="display: none;" class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="submit" id="submit">登 录</button>
 </form>
+
+<div class="htmleaf-content-bg">
+    <div class="htmleaf-content">
+        <h3 class="center">上传进度条</h3>
+        <div id="progressbar1"></div>
+    </div>
+</div>
 <script src="select_add_pop.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery.lineProgressbar.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#progressbar1').LineProgressbar({
+			percentage: 50
+		});
+	})
+</script>
 </body>
 </html>
