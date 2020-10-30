@@ -19,13 +19,13 @@ layui.config({
     // var uid = "5bea735b8c324eafbfd11b679eb758d01";
     var uid = "";
     var userinfo = window.sessionStorage.getItem("__userinfo") || "";
-    if(userinfo){
-        userinfo = JSON.parse(userinfo);
-        uid = userinfo.uid;
-    }else{
-        location.href = loginUrl;
-        return;
-    }
+    // if(userinfo){
+    //     userinfo = JSON.parse(userinfo);
+    //     uid = userinfo.uid;
+    // }else{
+    //     location.href = loginUrl;
+    //     return;
+    // }
     
     
     // var types = ["","硬件故障","软件故障","硬件使用障碍","软件使用障碍","优化建议","投诉反馈","其它"];
