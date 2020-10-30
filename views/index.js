@@ -84,6 +84,11 @@ layui.config({
             userinfo = JSON.parse(userinfo);
             $("#phone").html(userinfo.username || "");
             $("#username").html(userinfo.nick || "");
+
+
+            if(userinfo.headimgurl != ""){
+                $("#headimg").attr("src",userinfo.headimgurl);
+            }
         }else{
             location.href = loginUrl;
             return;
