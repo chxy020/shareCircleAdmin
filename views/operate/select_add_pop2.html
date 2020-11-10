@@ -90,7 +90,7 @@
     </style>
 </head>
 <body>
-<form method="post" id="form" name="form" enctype="multipart/form-data" class="layui-form" >
+<form method="post" class="layui-form" >
     <div class="layui-form" lay-filter="layuiadmin-app-form-list" id="layuiadmin-app-form-list" style="padding: 20px 30px 0 0; ">
         <!-- <div class="layui-form-item">
             <label class="layui-form-label"><span>*</span>所属专题：</label>
@@ -128,7 +128,8 @@
                 <!-- <input type="text" placeholder="支持直接截图复制粘贴" autocomplete="off" class="layui-input" id="BZ" name="BZ"> -->
                 <input type="file" class="layui-input" accept=".mp4" id="file" name="file" />
             </div>
-            <div id="IMGPATH" style="margin-left: 118px;" class="uploadImg">上传成功后的文件名.mp4</div>
+            <div style="margin-left: 120px;">支持MP4</div>
+            <!-- <div id="IMGPATH" style="margin-left: 118px;" class="uploadImg">上传成功后的文件名.mp4</div> -->
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">所需金币：</label>
@@ -144,27 +145,38 @@
             </div>
         </div>
     </div>
-    <input type="hidden" id="uid" name="uid" />
+    <!-- <input type="hidden" id="uid" name="uid" /> -->
     <input type="hidden" id="id" name="id" />
     <button style="display: none;" class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="submit" id="submit">登 录</button>
 </form>
 
-<!-- <div class="htmleaf-content-bg" style="display: none;">
+<div id="uploadbg" class="htmleaf-content-bg" style="display: none;">
     <div class="htmleaf-content">
         <h3 class="center">上传进度条</h3>
         <div id="progressbar1"></div>
     </div>
-</div> -->
+</div>
 
-<script src="select_add_pop.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qiniu-js/3.1.2/qiniu.min.js"></script>
+<script src="select_add_pop2.js" type="text/javascript" charset="utf-8"></script>
 <!-- <script src="../../js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script> -->
-<!-- <script src="../../js/jquery.lineProgressbar.js" type="text/javascript" charset="utf-8"></script> -->
+<script src="../../js/jquery.lineProgressbar.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-	// $(function(){
-	// 	$('#progressbar1').LineProgressbar({
-	// 		percentage: 50
-	// 	});
-	// })
+	$(function(){
+		// $('#progressbar1').LineProgressbar({
+		// 	percentage: 50
+        // });
+        
+        // $("#uploadbg").show()
+        // var total = 1;
+        // setInterval(function(){
+        //     $('#progressbar1').LineProgressbar({
+        //         percentage: total
+        //     });
+        //     total++;
+        // },1000)
+        
+    })
 </script>
 </body>
 </html>
