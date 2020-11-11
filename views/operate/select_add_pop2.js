@@ -18,6 +18,7 @@ layui.config({
 
     // var uid = "5bea735b8c324eafbfd11b679eb758d01";
     var uid = "";
+    
     var userinfo = window.sessionStorage.getItem("__userinfo") || "";
     if(userinfo){
         userinfo = JSON.parse(userinfo);
@@ -29,11 +30,11 @@ layui.config({
 
     var id = setter.getUrlParam("id",uri) || "";
 
-    if(id){
-        $("#id").val(id);
-    }else{
-        $("#uid").val(uid);
-    }
+    // if(id){
+    //     $("#id").val(id);
+    // }else{
+    //     $("#uid").val(uid);
+    // }
 
 
     if(id){
@@ -42,6 +43,7 @@ layui.config({
             detail = JSON.parse(detail);
 
             $("#title").val(detail.title);
+            $("#downloadpirce").val(detail.pirce);
             $("#describe").val(detail.describe);
         }
     }
@@ -199,20 +201,22 @@ layui.config({
     function saveVideo(condi){
         
 
-        if(!imgKey){
+        if(!imgKey && !id){
             layer.msg("请上传封面");
             return;
         }
         condi.imgKey = imgKey;
-        if(!videoKey){
+        if(!videoKey && !id){
             layer.msg("请上传视频");
             return;
         }
         condi.videoKey = videoKey;
+        condi.uid = uid;
 
         var url = server + "/circle/examine/savePathVideo";
         if(id){
-            url = server + "/circle/examine/modifyVideo";
+            url = server + "/circle/examine/modifyPathVideo";
+            condi.id = id;
         }
 
         layer.load(2);

@@ -418,7 +418,7 @@ layui.config({
                 btn: ['保存', '取消'],
                 btnAlign: 'c',
                 maxmin: true,
-                content: 'select_add_pop.html?id='+data.id,
+                content: 'select_add_pop2.html?id='+data.id,
                 yes: function(index, layero) {
                     var submit = layero.find('iframe').contents().find("#submit");
                     submit.click();
@@ -471,7 +471,7 @@ layui.config({
         add2: function() {
             layer.open({
                 type: 2,
-                title: '添加资源2',
+                title: '添加资源',
                 area: ['100%', '100%'],
                 btn: ['保存', '取消'],
                 btnAlign: 'c',
