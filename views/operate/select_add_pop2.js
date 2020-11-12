@@ -73,9 +73,14 @@ layui.config({
 
 
     var videoKey;
+    var videoSize;
+    var videoType = "mp4";
     var observer = {
         next(res){
             var total = Math.ceil(res.total.percent);
+            if(total == 100){
+                videoSize = res.total.size;
+            }
             $("#uploadbg").show();
             $('#progressbar1').LineProgressbar({
                 percentage: total,
@@ -211,6 +216,8 @@ layui.config({
             return;
         }
         condi.videoKey = videoKey;
+        condi.videoType = videoType;
+        condi.videoSize = videoSize;
         condi.uid = uid;
 
         var url = server + "/circle/examine/savePathVideo";
