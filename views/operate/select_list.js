@@ -438,6 +438,7 @@ layui.config({
                 yes: function(index, layero) {
                     // var submit = layero.find('iframe').contents().find("#submit");
                     // submit.click();
+                    layer.closeAll();
                 }
             });
         } else if(obj.event == 'switch'){

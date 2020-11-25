@@ -229,7 +229,7 @@ layui.config({
         layer.load(2);
 
         $.Ajax({
-            async: false,
+            async: true,
             url: url,
             dataType: "json",
             method: 'post',

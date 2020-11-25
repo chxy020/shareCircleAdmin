@@ -1,3 +1,6 @@
 /home/Java/circle/static
 
-http://39.107.249.187:8083/circle/static/index.html
+http://139.196.147.194:8083/circle/static/views/index.html
+
+用户名：root
+密码：Hzsj!1234
