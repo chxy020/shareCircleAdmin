@@ -191,7 +191,7 @@
 					</script>
 					<script type="text/html" id="test-table-operate-barDemo-cellD">
 						<div style="text-align: left;white-space:nowrap;">
-							<div class="touxiang"><img src="../images/headImg.png" width="24" />{{d.username}}</div>
+							<div class="touxiang"><img src="{{d.headimgurl || '../images/headImg.png'}}" style="border-radius: 50%;height: 24px;" width="24" />{{d.username}}</div>
 							<div class="zinfo"><span>分享：{{d.share_num}}</span><span>下载：{{d.download}}</span></div>
 							<div class="times">{{d.create_time}}</div>
 						</div>

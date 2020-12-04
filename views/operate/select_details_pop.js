@@ -75,7 +75,7 @@ layui.config({
 
             var info3 = [];
             info3.push('<div class="borderF"><img src="../images/icona.png" width="24" />' +detail.title+ '</div>');
-            info3.push('<div class="borderF infoxx"><img src="../images/headImg.png" width="24" />' + detail.username + '<span class="a">' + detail.resourceNum + '</span><span class="b">资源</span></div>');
+            info3.push('<div class="borderF infoxx"><img src="' + (detail.headimgurl || '../images/headImg.png') + '" style="border-radius: 50%;height: 24px;" width="24" />' + detail.username + '<span class="a">' + detail.resourceNum + '</span><span class="b">资源</span></div>');
             
             $("#info3").html(info3.join(''));
 
