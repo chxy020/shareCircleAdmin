@@ -16,13 +16,24 @@ layui.config({
     var server = setter.baseUrl;
     var imageUrl = setter.imageUrl;
     var uri = window.location.search;
-    
+    var loginUrl = setter.loginUrl;
+
     // var types = ["","硬件故障","软件故障","硬件使用障碍","软件使用障碍","优化建议","投诉反馈","其它"];
     // var imgpaths = [];
 
     // var role_ID = setter.getUrlParam("role_ID",uri) || "";
 
     var id = setter.getUrlParam("id",uri) || "";
+
+    // var uid = "";
+    // var userinfo = window.sessionStorage.getItem("__userinfo") || "";
+    // if(userinfo){
+    //     userinfo = JSON.parse(userinfo);
+    //     uid = userinfo.uid;
+    // }else{
+    //     location.href = loginUrl;
+    //     return;
+    // }
 
     // upload.render({
     //     elem: '#test5',
@@ -54,11 +65,28 @@ layui.config({
     //     }
     // });
 
+    var resourceNum = 0;
+
+    
 
     if(id){
         var detail = window.sessionStorage.getItem("__videodetail");
         if(detail){
             detail = JSON.parse(detail);
+
+            $.Ajax({
+                async: false,
+                url: server + '/circle/examine/getResources?uid=' + detail.publishUid,
+                dataType: "json",
+                method: 'get',
+                success: function(obj) {
+                    if(obj.code == 0){
+                        resourceNum = obj.data || 0;
+                    }
+                },
+                error:function(){
+                }
+            });
 
             var info1 = [];
             info1.push('<div class="rightbt">来源：' + detail.username + '的私密圈</div>');
@@ -75,7 +103,7 @@ layui.config({
 
             var info3 = [];
             info3.push('<div class="borderF"><img src="../images/icona.png" width="24" />' +detail.title+ '</div>');
-            info3.push('<div class="borderF infoxx"><img src="' + (detail.headimgurl || '../images/headImg.png') + '" style="border-radius: 50%;height: 24px;" width="24" />' + detail.username + '<span class="a">' + detail.resourceNum + '</span><span class="b">资源</span></div>');
+            info3.push('<div class="borderF infoxx"><img src="' + (detail.headimgurl || '../images/headImg.png') + '" style="border-radius: 50%;height: 24px;" width="24" />' + detail.username + '<span class="a">' + resourceNum + '</span><span class="b">资源</span></div>');
             
             $("#info3").html(info3.join(''));
 
